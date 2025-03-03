@@ -6,11 +6,22 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/03 18:52:44 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/03 20:35:56 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+static void	init_player(t_player *player)
+{
+	player->x = WIDTH / 2;
+	player->y = HEIGHT / 2;
+	player->size = 10;
+	player->key_down = false;
+	player->key_up = false;
+	player->key_right = false;
+	player->key_left = false;
+}
 
 void	init(t_game *game)
 {
@@ -32,6 +43,7 @@ void	init(t_game *game)
 		free(game->mlx);
 		exit (EXIT_FAILURE);
 	}
-	game->img.addr = mlx_get_game_addr(game->img.img, &game->img.bits_per_pixel,
+	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bits_per_pixel,
 			&game->img.line_length, &game->img.endian);
+	init_player(&game->player);
 }
