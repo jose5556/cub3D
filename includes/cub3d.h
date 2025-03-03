@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/01 14:35:28 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:19:03 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,14 @@ void	init(t_data *data);
 int		render_cub3d(void *param);
 void	handle_pixel(int x, int y, t_data *data);
 void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
+
+//events
+int		close_program(t_data *data);
+int		hooks_listener(t_data *data);
+int		handle_keys(int keycode, t_data *data);
+
+
+
+
+
 #endif

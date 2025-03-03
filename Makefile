@@ -6,7 +6,7 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/01 12:50:37 by joseoliv          #+#    #+#              #
-#    Updated: 2025/03/01 14:36:21 by joseoliv         ###   ########.fr        #
+#    Updated: 2025/03/03 17:17:30 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 CFLAGS = -Wextra -Wall -Werror
 LDFLAGS = $(LIBFT) $(MINILIBX) -lX11 -lXext -lm
 
-SRCS =	src/main.c src/init/init.c src/render/render_cub3d.c
+SRCS = $(wildcard src/**/*.c src/*.c)
 
 OBJS = $(SRCS:.c=.o)
 
