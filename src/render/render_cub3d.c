@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/03 18:52:54 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/03 21:09:59 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,53 @@ void	my_mlx_pixel_put(t_img *vars, int x, int y, int color)
 {
 	char	*dst;
 
+	if(x >= WIDTH || y >= HEIGHT || x < 0 || y < 0)
+        return ;
 	dst = vars->addr + (y * vars->line_length + x
 			* (vars->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 
-void	handle_pixel(int x, int y, t_game *game)
+void	draw_square(int color, t_game *game)
 {
-	if ((x >= 300 && x <= 500) && (y >= 300 && y <= 500))
-		my_mlx_pixel_put(&game->img, x, y, RED);
-	else
-		my_mlx_pixel_put(&game->img, x, y, WHITE);
+	int	i;
+
+	i = -1;
+	while (++i < game->player.size)
+		my_mlx_pixel_put(&game->img, game->player.x + i, game->player.y, color);  //up
+	i = -1;
+	while (++i < game->player.size)
+		my_mlx_pixel_put(&game->img, game->player.x, game->player.y + i, color); //down
+	i = -1;
+	while (++i < game->player.size)
+		my_mlx_pixel_put(&game->img, game->player.x + game->player.size, game->player.y + i, color);  //right
+	i = -1;
+	while (++i < game->player.size)
+		my_mlx_pixel_put(&game->img, game->player.x + i, game->player.y + game->player.size, color);  //left
 }
 
-int	render_cub3d(void *param)
+static void	clean_image(t_game *game)
 {
-	t_game	*game;
-	int		x;
-	int		y;
+	int	y;
+	int	x;
 
-	game = (t_game *)param;
 	y = -1;
 	while (++y < HEIGHT)
 	{
 		x = -1;
 		while (++x < WIDTH)
-			handle_pixel(x, y, game);
+			my_mlx_pixel_put(&game->img, x, y, 0);
 	}
+}
+
+int	render_cub3d(void *param)
+{
+	t_game	*game;
+
+	game = (t_game *)param;
+	move_player(&game->player);
+	clean_image(game);
+	draw_square(GREEN, game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
 	return (1);
 }
