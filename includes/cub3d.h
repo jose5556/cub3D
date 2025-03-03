@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/03 17:19:03 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:52:00 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,25 +38,25 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_data
+typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
 	t_img		img;
-}	t_data;
+}	t_game;
 
 //init
-void	init(t_data *data);
+void	init(t_game *game);
 
 //render
 int		render_cub3d(void *param);
-void	handle_pixel(int x, int y, t_data *data);
+void	handle_pixel(int x, int y, t_game *game);
 void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 
 //events
-int		close_program(t_data *data);
-int		hooks_listener(t_data *data);
-int		handle_keys(int keycode, t_data *data);
+int		close_program(t_game *game);
+int		hooks_listener(t_game *game);
+int		handle_keys(int keycode, t_game *game);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/03 17:54:20 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:53:03 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	main(void)
 {
-	t_data	data;
+	t_game	game;
 
-	ft_memset(&data, 0, sizeof(t_data));
+	ft_memset(&game, 0, sizeof(t_game));
 	//map_validation();  TODO
-	init(&data);
-	render_cub3d(&data);
-	hooks_listener(&data);
-	mlx_loop_hook(data.mlx, render_cub3d, &data);
-	mlx_loop(data.mlx);
+	init(&game);
+	render_cub3d(&game);
+	hooks_listener(&game);
+	mlx_loop_hook(game.mlx, render_cub3d, &game);
+	mlx_loop(game.mlx);
 }

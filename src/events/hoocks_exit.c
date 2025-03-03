@@ -6,18 +6,18 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:13:24 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/03 17:46:28 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:52:15 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	close_program(t_data *data)
+int	close_program(t_game *game)
 {
-	mlx_destroy_image(data->mlx, data->img.img);
-	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_display(data->mlx);
-	free(data->mlx);
+	mlx_destroy_image(game->mlx, game->img.img);
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
 	exit (EXIT_SUCCESS);
 	return (0);
 }
