@@ -6,7 +6,7 @@
 #    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/01 12:50:37 by joseoliv          #+#    #+#              #
-#    Updated: 2025/03/03 17:17:30 by joseoliv         ###   ########.fr        #
+#    Updated: 2025/03/03 19:02:20 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ MINILIBX = $(MINILIBX_DIR)/libmlx.a
 LIBFT_DIR = libs/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-CFLAGS = -Wextra -Wall -Werror
+# CFLAGS = -Wextra -Wall -Werror  
 LDFLAGS = $(LIBFT) $(MINILIBX) -lX11 -lXext -lm
 
 SRCS = $(wildcard src/**/*.c src/*.c)
