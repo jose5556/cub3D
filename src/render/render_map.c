@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:34:55 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 17:38:39 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:06:56 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ void	draw_map(t_game *game)  //temp
 
 char **get_map(void)   //temp func
 {
-    char **map = malloc(sizeof(char *) * 11);
+    char **map;
+	
+	map = malloc(sizeof(char *) * 11);
     map[0] = "111111111111111";
     map[1] = "100000000000001";
     map[2] = "100000000000001";
