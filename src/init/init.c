@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/03 20:35:56 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:32:41 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@ static void	init_player(t_player *player)
 {
 	player->x = WIDTH / 2;
 	player->y = HEIGHT / 2;
+	player->angle = PI / 2;
 	player->size = 10;
+	
 	player->key_down = false;
 	player->key_up = false;
 	player->key_right = false;
 	player->key_left = false;
+
+	player->left_direction = false;
+	player->right_direction = false;
 }
 
 void	init(t_game *game)
