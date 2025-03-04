@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 15:56:25 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:55:55 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 //SCREEN SIZE
 # define HEIGHT	720
 # define WIDTH	1280
+# define SIZE	64
 
 //ERROR MESSAGES
 # define STANDART_ERROR		"Error\n"
@@ -50,7 +51,6 @@ typedef struct s_player
 	float	x;
 	float	y;
 	float	angle;
-	int		size;
 	bool	key_up;
     bool	key_down;
     bool	key_left;
@@ -72,6 +72,7 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
+	char		**map;   //temp
 	t_img		img;
 	t_player	player;
 }	t_game;
@@ -92,6 +93,7 @@ void	move_player(t_player *player);
 
 
 //temp
-void	draw_square(int color, t_game *game);
+void	draw_square(int size, int color, t_game *game);
+char	**get_map(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 15:32:41 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:50:33 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	init_player(t_player *player)
 	player->x = WIDTH / 2;
 	player->y = HEIGHT / 2;
 	player->angle = PI / 2;
-	player->size = 10;
 	
 	player->key_down = false;
 	player->key_up = false;
@@ -51,4 +50,5 @@ void	init(t_game *game)
 	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bits_per_pixel,
 			&game->img.line_length, &game->img.endian);
 	init_player(&game->player);
+	game->map = get_map();
 }

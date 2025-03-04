@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 15:24:14 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 16:46:02 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 
 	/* if (argc != 2)
 		return (exit_error(ARGUMENTS_ERROR)); */
-	ft_memset(&game, 0, sizeof(t_game));
+	ft_bzero(&game, 0);
 	//map_validation();  TODO
 	init(&game);
 	render_cub3d(&game);
