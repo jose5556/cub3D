@@ -6,11 +6,16 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 16:50:33 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 18:06:03 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+/* static void	init_map(t_coisa coisa) TODO
+{
+	
+} */
 
 static void	init_player(t_player *player)
 {
@@ -27,28 +32,24 @@ static void	init_player(t_player *player)
 	player->right_direction = false;
 }
 
-void	init(t_game *game)
+static void	init_mlx(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		exit (EXIT_FAILURE);
+		mlx_exit_error(MLX_INIT_ERROR, game, 0);
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "cub3D");
 	if (!game->win)
-	{
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-		exit (EXIT_FAILURE);
-	}
+		mlx_exit_error(MLX_WINDOW_ERROR, game, 1);
 	game->img.img = mlx_new_image(game->mlx, WIDTH, HEIGHT);
 	if (!game->img.img)
-	{
-		mlx_destroy_display(game->mlx);
-		mlx_destroy_window(game->mlx, game->win);
-		free(game->mlx);
-		exit (EXIT_FAILURE);
-	}
+		mlx_exit_error(MLX_IMAGE_ERROR, game, 2);
 	game->img.addr = mlx_get_data_addr(game->img.img, &game->img.bits_per_pixel,
 			&game->img.line_length, &game->img.endian);
+}
+
+void	init(t_game *game)
+{
+	init_mlx(game);
 	init_player(&game->player);
 	game->map = get_map();
 }
