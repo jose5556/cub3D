@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 16:55:55 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 17:38:30 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ void	move_player(t_player *player);
 //temp
 void	draw_square(int size, int color, t_game *game);
 char	**get_map(void);
+void	draw_map(t_game *game);
 
 #endif
