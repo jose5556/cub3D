@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 18:06:03 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 20:26:27 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,25 @@
 	
 } */
 
-static void	init_player(t_player *player)
+static void	init_player(t_game *game)
 {
-	player->x = WIDTH / 2;
-	player->y = HEIGHT / 2;
-	player->angle = PI / 2;
-	
-	player->key_down = false;
-	player->key_up = false;
-	player->key_right = false;
-	player->key_left = false;
+	/* game->player.x = get_player_x(game);
+	printf("%d\n", game->player.x);
+	game->player.y = get_player_y(game);
+	printf("%d\n", game->player.y); */
 
-	player->left_direction = false;
-	player->right_direction = false;
+	game->player.x = WIDTH / 2;
+	game->player.y = HEIGHT / 2;
+
+	game->player.angle = PI / 2;
+	
+	game->player.key_down = false;
+	game->player.key_up = false;
+	game->player.key_right = false;
+	game->player.key_left = false;
+
+	game->player.left_direction = false;
+	game->player.right_direction = false;
 }
 
 static void	init_mlx(t_game *game)
@@ -50,6 +56,6 @@ static void	init_mlx(t_game *game)
 void	init(t_game *game)
 {
 	init_mlx(game);
-	init_player(&game->player);
 	game->map = get_map();
+	init_player(game);
 }
