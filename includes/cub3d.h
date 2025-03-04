@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 18:02:27 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 20:17:18 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@
 
 typedef struct s_player
 {
-	float	x;
-	float	y;
+	int		x;
+	int		y;
 	float	angle;
 	bool	key_up;
     bool	key_down;
@@ -94,12 +94,16 @@ void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 int		hooks_listener(t_game *game);
 int		handle_keys_press(int keycode, t_game *game);
 int		handle_keys_released(int keycode, t_game *game);
-void	move_player(t_player *player);
 
 //exit
 int		close_program_hook(t_game *game);
 int		simple_exit_error(char *error_message);
 void	mlx_exit_error(char *error_message, t_game *game, int error);
+
+//player
+void	move_player(t_player *player);
+int		get_player_x(t_game *game);
+int		get_player_y(t_game *game);
 
 //render_map temp
 void	draw_square_map(int x, int y, int size, int color, t_game *game);
