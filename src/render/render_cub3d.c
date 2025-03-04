@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/03 21:09:59 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:01:29 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,4 @@ int	render_cub3d(void *param)
 	clean_image(game);
 	draw_square(GREEN, game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
-	return (1);
 }
