@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/03 21:10:09 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/04 15:56:25 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 # define WIDTH	1280
 
 //ERROR MESSAGES
-# define ERROR_MESSAGE "ERROR\n"
+# define STANDART_ERROR		"Error\n"
+# define ARGUMENTS_ERROR	"Invalid number of arguments\n"
 
 //KEYCODES
 # define W				119
@@ -48,11 +49,14 @@ typedef struct s_player
 {
 	float	x;
 	float	y;
+	float	angle;
 	int		size;
-	bool key_up;
-    bool key_down;
-    bool key_left;
-    bool key_right;	
+	bool	key_up;
+    bool	key_down;
+    bool	key_left;
+    bool	key_right;	
+	bool	left_direction;
+	bool	right_direction;
 }	t_player;
 
 typedef struct s_img
@@ -80,7 +84,7 @@ int		render_cub3d(void *param);
 void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 
 //events
-int		close_program(t_game *game);
+int		close_program_hook(t_game *game);
 int		hooks_listener(t_game *game);
 int		handle_keys_press(int keycode, t_game *game);
 int		handle_keys_released(int keycode, t_game *game);
