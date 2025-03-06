@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 18:38:40 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/06 17:34:25 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	move_player(t_player *player)
 	float	cos_angle;
 	float	sin_angle;
 
-	speed = 5;
+	speed = 2;
 	angle_speed = 0.03;
 	cos_angle = cos(player->angle);
 	sin_angle = sin(player->angle);
