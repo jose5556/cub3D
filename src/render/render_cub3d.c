@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_cub3d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 19:07:02 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:37:02 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,6 @@ static void	clear_image(t_game *game)
 	}
 }
 
-static bool	touch(float px, float py, t_game *game)
-{
-	int x;
-	int y;
-
-	x = px / SIZE;
-	y = py / SIZE;
-	if(game->map[y][x] == '1')
-		return true;
-	return false;
-}
-
 static void	draw_line(t_game *game, float start_x, int i)
 {
 	float cos_angle;
@@ -67,7 +55,7 @@ static void	draw_line(t_game *game, float start_x, int i)
 	sin_angle = sin(start_x);
 	ray_x = game->player.x;
 	ray_y = game->player.y;
-	while(!touch(ray_x, ray_y, game))
+	while(!touch_wall(ray_x, ray_y, game))
 	{
 		my_mlx_pixel_put(&game->img, ray_x, ray_y, RED);
 		ray_x += cos_angle;
@@ -83,7 +71,7 @@ int	render_cub3d(void *param)
 	float	start_x;
 
 	game = (t_game *)param;
-	move_player(&game->player);
+	move_player(game);
 	clear_image(game);
 	draw_player(10 ,GREEN, game);
 	draw_map(game);

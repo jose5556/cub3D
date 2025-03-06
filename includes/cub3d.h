@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/06 18:02:01 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/06 18:37:27 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,6 @@ void	init(t_game *game);
 int		render_cub3d(void *param);
 void	draw_player(int size, int color, t_game *game);
 
-//utils
-void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
-
 //events
 int		hooks_listener(t_game *game);
 int		handle_keys_press(int keycode, t_game *game);
@@ -102,7 +99,7 @@ void	mlx_exit_error(char *error_message, t_game *game, int error);
 
 //player
 float	get_player_angle(t_game *game);
-void	move_player(t_player *player);
+void	move_player(t_game *game);
 int		get_player_x(t_game *game);
 int		get_player_y(t_game *game);
 
@@ -110,5 +107,9 @@ int		get_player_y(t_game *game);
 void	draw_square_map(int x, int y, int size, int color, t_game *game);
 char	**get_map(void);
 void	draw_map(t_game *game);
+
+//utils
+void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
+bool	touch_wall(float px, float py, t_game *game);
 
 #endif
