@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 20:17:18 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:02:01 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int		simple_exit_error(char *error_message);
 void	mlx_exit_error(char *error_message, t_game *game, int error);
 
 //player
+float	get_player_angle(t_game *game);
 void	move_player(t_player *player);
 int		get_player_x(t_game *game);
 int		get_player_y(t_game *game);

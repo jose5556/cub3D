@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 20:26:27 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:13:09 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,10 @@
 
 static void	init_player(t_game *game)
 {
-	/* game->player.x = get_player_x(game);
-	printf("%d\n", game->player.x);
 	game->player.y = get_player_y(game);
-	printf("%d\n", game->player.y); */
+	game->player.x = get_player_x(game);
 
-	game->player.x = WIDTH / 2;
-	game->player.y = HEIGHT / 2;
-
-	game->player.angle = PI / 2;
+	game->player.angle = get_player_angle(game);
 	
 	game->player.key_down = false;
 	game->player.key_up = false;
