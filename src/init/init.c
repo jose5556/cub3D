@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/06 18:30:26 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 17:09:11 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void	init_player(t_game *game)
 	game->player.y = get_player_y(game);
 	game->player.x = get_player_x(game);
 	game->player.angle = get_player_angle(game);
+
 	game->player.key_down = false;
 	game->player.key_up = false;
 	game->player.key_right = false;

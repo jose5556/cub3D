@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:40:15 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/06 18:37:09 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:52:30 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ void	my_mlx_pixel_put(t_img *vars, int x, int y, int color)
 	dst = vars->addr + (y * vars->line_length + x
 			* (vars->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
+}
+
+float	degree_to_radians(int a) 
+{ 
+	return (a * PI / 180.0);
+}
+
+int	angle_fix(int a)
+{ 
+    return ((a % 360 + 360) % 360); 
 }
 
 bool	touch_wall(float px, float py, t_game *game)

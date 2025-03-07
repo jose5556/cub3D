@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 16:12:18 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:52:24 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,14 @@
 # define BLUE			0x00008B
 
 //PI
-# define PI 3.14159265359
+# define PI 3.141592653589793238462643383279502884197
 
 typedef struct s_player
 {
 	int		x;
 	int		y;
+	float	x_cos;
+	float	y_sin;
 	float	angle;
 	bool	key_up;
     bool	key_down;
@@ -113,5 +115,7 @@ void	draw_map(t_game *game);
 //utils
 void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 bool	touch_wall(float px, float py, t_game *game);
+float	degree_to_radians(int a);
+int		angle_fix(int a);
 
 #endif

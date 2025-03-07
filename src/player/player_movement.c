@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/06 18:38:25 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 17:12:34 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,42 +15,40 @@
 void	move_player(t_game *game)
 {
 	int		speed;
-	float	angle_speed;
-	float	cos_angle;
-	float	sin_angle;
 
 	speed = 5;
-	angle_speed = 0.03;
-	cos_angle = cos(game->player.angle);
-	sin_angle = sin(game->player.angle);
 
 	if (game->player.left_direction)
-		game->player.angle -= angle_speed;
+		game->player.angle -= degree_to_radians(speed);
 	if (game->player.right_direction)
-		game->player.angle += angle_speed;
+		game->player.angle += degree_to_radians(speed);
+
 	if (game->player.angle > 2 * PI)
-		game->player.angle = 0;
+		game->player.angle -= 2 * PI;
 	if (game->player.angle < 0)
-		game->player.angle = 2 * PI;
+		game->player.angle += 2 * PI;
+
+	game->player.x_cos = cos(game->player.angle);
+	game->player.y_sin = sin(game->player.angle);
 	
 	if (game->player.key_up && !touch_wall(game->player.x, game->player.y, game))
 	{
-		game->player.x += cos_angle * speed;
-		game->player.y += sin_angle * speed;
+		game->player.x += game->player.x_cos * speed;
+		game->player.y += game->player.y_sin * speed;
 	}
 	if (game->player.key_down && !touch_wall(game->player.x, game->player.y, game))
 	{
-		game->player.x -= cos_angle * speed;
-		game->player.y -= sin_angle * speed;
+		game->player.x -= game->player.x_cos * speed;
+		game->player.y -= game->player.y_sin * speed;
 	}
 	if (game->player.key_left && !touch_wall(game->player.x, game->player.y, game))
 	{
-		game->player.x += sin_angle * speed;
-		game->player.y -= cos_angle * speed;
+		game->player.x += game->player.y_sin * speed;
+		game->player.y -= game->player.x_cos * speed;
 	}
 	if (game->player.key_right && !touch_wall(game->player.x, game->player.y, game))
 	{
-		game->player.x -= sin_angle * speed;
-		game->player.y += cos_angle * speed;
+		game->player.x -= game->player.y_sin * speed;
+		game->player.y += game->player.x_cos * speed;
 	}
 }
