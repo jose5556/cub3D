@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 16:28:53 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 17:27:50 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,6 @@ static void	clear_image(t_game *game)
 		x = -1;
 		while (++x < WIDTH)
 			my_mlx_pixel_put(&game->img, x, y, 0);
-	}
-}
-
-static void	draw_line(t_game *game, float start_x, int i)
-{
-	float cos_angle;
-	float sin_angle;
-	float ray_x;
-	float ray_y;
-
-	cos_angle = cos(start_x);
-	sin_angle = sin(start_x);
-	ray_x = game->player.x;
-	ray_y = game->player.y;
-	while(!touch_wall(ray_x, ray_y, game))
-	{
-		my_mlx_pixel_put(&game->img, ray_x, ray_y, RED);
-		ray_x += cos_angle;
-		ray_y += sin_angle;
 	}
 }
 

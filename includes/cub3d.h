@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 16:52:24 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 17:36:00 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	init(t_game *game);
 //render
 int		render_cub3d(void *param);
 void	draw_player(int size, int color, t_game *game);
+void    draw_line(t_game *game, float start_x, int i);
 
 //events
 int		hooks_listener(t_game *game);

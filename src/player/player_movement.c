@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 17:12:34 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 17:21:57 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	move_player(t_game *game)
 {
 	int		speed;
 
-	speed = 5;
+	speed = 3;
 
 	if (game->player.left_direction)
 		game->player.angle -= degree_to_radians(speed);
