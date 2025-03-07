@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/06 18:37:27 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:12:18 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@
 # define WHITE			0xFFFFFF
 # define RED			0xFF0000
 # define GREEN			0x00FF00
+# define GRAY			0x888888
+# define BLUE			0x00008B
 
 //PI
 # define PI 3.14159265359
@@ -104,7 +106,7 @@ int		get_player_x(t_game *game);
 int		get_player_y(t_game *game);
 
 //render_map temp
-void	draw_square_map(int x, int y, int size, int color, t_game *game);
+void	draw_square(int x, int y, int size, int color, t_game *game);
 char	**get_map(void);
 void	draw_map(t_game *game);
 

@@ -6,13 +6,25 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:34:55 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/06 18:42:17 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:30:55 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-/* void	draw_square_map(int x, int y, int size, int color, t_game *game)  //temp
+static void	draw_grid_lines(int x, int y, int size, int color, t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i < size)
+		my_mlx_pixel_put(&game->img, x, y + i, color); //vertical
+	i = -1;
+	while (++i < size)
+		my_mlx_pixel_put(&game->img, x + i, y, color);  //horizontal
+}
+
+void	draw_square(int x, int y, int size, int color, t_game *game)
 {
 	int	i;
 	int	j;
@@ -24,26 +36,9 @@
 		while (++j < size)
 			my_mlx_pixel_put(&game->img, x + j, y + i, color);
 	}
-} */
-void	draw_square_map(int x, int y, int size, int color, t_game *game)  //temp
-{
-	int	i;
-
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img, x + i, y, color);  //up
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img, x, y + i, color); //down
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img,x + size, y + i, color);  //right
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img, x + i, y + size, color);  //left
 }
 
-void	draw_map(t_game *game)  //temp
+void	draw_map(t_game *game)
 {
 	char	**map;
 	int		color;
@@ -52,14 +47,17 @@ void	draw_map(t_game *game)  //temp
 
 	y = -1;
 	map = game->map;
-	color = 0x0000FF;
 	while (map[++y])
 	{
 		x = -1;
 		while (map[y][++x])
 		{
 			if(map[y][x] == '1')
-				draw_square_map(x * SIZE, y * SIZE, SIZE, color, game);
+				color = WHITE;
+			else
+				color = BLACK;
+			draw_square(x * SIZE, y * SIZE, SIZE, color, game);
+			draw_grid_lines(x * SIZE, y * SIZE, SIZE, GRAY, game);
 		}
 	}
 }

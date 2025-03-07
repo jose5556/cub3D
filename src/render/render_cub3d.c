@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/06 18:37:02 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/07 16:28:53 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,15 @@
 void	draw_player(int size, int color, t_game *game)
 {
 	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < size)
-		my_mlx_pixel_put(&game->img, game->player.x + i, game->player.y, color);  //up
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img, game->player.x, game->player.y + i, color); //down
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img, game->player.x + size, game->player.y + i, color);  //right
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img, game->player.x + i, game->player.y + size, color);  //left
+	{
+		j = -1;
+		while (++j < size)
+			my_mlx_pixel_put(&game->img, game->player.x + j, game->player.y + i, color);
+	}
 }
 
 static void	clear_image(t_game *game)
@@ -73,8 +69,8 @@ int	render_cub3d(void *param)
 	game = (t_game *)param;
 	move_player(game);
 	clear_image(game);
-	draw_player(10 ,GREEN, game);
 	draw_map(game);
+	draw_player(10 ,GREEN, game);
 	fraction = PI / 3 / WIDTH;
 	start_x = game->player.angle - PI / 6;
 	i = -1;
