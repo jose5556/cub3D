@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 17:18:55 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/14 02:45:15 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static void	init_player(t_game *game)
 	
 	game->player.x_cos = cos(game->player.angle);
 	game->player.y_sin = sin(game->player.angle);
+
+	game->player.movement = 5;
 
 	game->player.key_down = false;
 	game->player.key_up = false;

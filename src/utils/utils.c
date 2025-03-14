@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:40:15 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 16:52:30 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/14 03:10:52 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ float	degree_to_radians(int a)
 	return (a * PI / 180.0);
 }
 
-int	angle_fix(int a)
-{ 
-    return ((a % 360 + 360) % 360); 
-}
-
 bool	touch_wall(float px, float py, t_game *game)
 {
 	int x;
@@ -40,6 +35,9 @@ bool	touch_wall(float px, float py, t_game *game)
 
 	x = px / SIZE;
 	y = py / SIZE;
+	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT) {
+		return true;
+    }
 	if(game->map[y][x] == '1')
 		return true;
 	return false;

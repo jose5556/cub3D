@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 17:21:57 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/14 01:22:12 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 void	move_player(t_game *game)
 {
-	int		speed;
-
-	speed = 3;
-
 	if (game->player.left_direction)
-		game->player.angle -= degree_to_radians(speed);
+		game->player.angle -= degree_to_radians(game->player.movement);
 	if (game->player.right_direction)
-		game->player.angle += degree_to_radians(speed);
+		game->player.angle += degree_to_radians(game->player.movement);
 
 	if (game->player.angle > 2 * PI)
 		game->player.angle -= 2 * PI;
@@ -31,24 +27,24 @@ void	move_player(t_game *game)
 	game->player.x_cos = cos(game->player.angle);
 	game->player.y_sin = sin(game->player.angle);
 	
-	if (game->player.key_up && !touch_wall(game->player.x, game->player.y, game))
+	if (game->player.key_up)
 	{
-		game->player.x += game->player.x_cos * speed;
-		game->player.y += game->player.y_sin * speed;
+		game->player.x += game->player.x_cos * game->player.movement;
+		game->player.y += game->player.y_sin * game->player.movement;
 	}
-	if (game->player.key_down && !touch_wall(game->player.x, game->player.y, game))
+	if (game->player.key_down)
 	{
-		game->player.x -= game->player.x_cos * speed;
-		game->player.y -= game->player.y_sin * speed;
+		game->player.x -= game->player.x_cos * game->player.movement;
+		game->player.y -= game->player.y_sin * game->player.movement;
 	}
-	if (game->player.key_left && !touch_wall(game->player.x, game->player.y, game))
+	if (game->player.key_left)
 	{
-		game->player.x += game->player.y_sin * speed;
-		game->player.y -= game->player.x_cos * speed;
+		game->player.x += game->player.y_sin * game->player.movement;
+		game->player.y -= game->player.x_cos * game->player.movement;
 	}
-	if (game->player.key_right && !touch_wall(game->player.x, game->player.y, game))
+	if (game->player.key_right)
 	{
-		game->player.x -= game->player.y_sin * speed;
-		game->player.y += game->player.x_cos * speed;
+		game->player.x -= game->player.y_sin * game->player.movement;
+		game->player.y += game->player.x_cos * game->player.movement;
 	}
 }
