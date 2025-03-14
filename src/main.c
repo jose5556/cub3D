@@ -6,9 +6,11 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 17:49:19 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/14 03:18:18 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// https://lodev.org/cgtutor/raycasting.html
 
 #include "../includes/cub3d.h"
 
