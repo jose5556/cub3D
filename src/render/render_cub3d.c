@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_cub3d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 17:27:50 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/14 03:06:35 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static void	clear_image(t_game *game)
 int	render_cub3d(void *param)
 {
 	t_game	*game;
-	int		i;
 	float	fraction;
 	float	start_x;
 
@@ -52,14 +51,8 @@ int	render_cub3d(void *param)
 	clear_image(game);
 	draw_map(game);
 	draw_player(10 ,GREEN, game);
-	fraction = PI / 3 / WIDTH;
-	start_x = game->player.angle - PI / 6;
-	i = -1;
-	while(++i < WIDTH)
-	{
-		draw_line(game, start_x, i);
-		start_x += fraction;
-		i++;
-	}
+	set_ray_parameters(game, &fraction, &start_x);
+	render_raycaster(game, start_x, fraction);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
+	return (0);
 }

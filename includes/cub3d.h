@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 17:36:00 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/14 03:10:59 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,26 @@
 //PI
 # define PI 3.141592653589793238462643383279502884197
 
+typedef struct s_raycaster
+{
+	float	x;
+	float	y;
+	float	delta_dist_x;
+	float	delta_dist_y;
+	float	side_dist_x;
+	float	side_dist_y;
+	int		h_direction;
+	int		v_direction;
+	float	dir_x;
+	float	dir_y;
+}	t_ray;
+
+
 typedef struct s_player
 {
 	int		x;
 	int		y;
+	int		movement;
 	float	x_cos;
 	float	y_sin;
 	float	angle;
@@ -82,6 +98,7 @@ typedef struct s_game
 	char		**map;   //temp
 	t_img		img;
 	t_player	player;
+	t_ray		ray;
 }	t_game;
 
 //init
@@ -90,7 +107,7 @@ void	init(t_game *game);
 //render
 int		render_cub3d(void *param);
 void	draw_player(int size, int color, t_game *game);
-void    draw_line(t_game *game, float start_x, int i);
+void	render_raycaster(t_game *game, float start_x, float fraction);
 
 //events
 int		hooks_listener(t_game *game);
@@ -116,7 +133,8 @@ void	draw_map(t_game *game);
 //utils
 void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 bool	touch_wall(float px, float py, t_game *game);
-float	degree_to_radians(int a);
-int		angle_fix(int a);
+void	set_ray_parameters(t_game *game, float *fraction, float *start_x);
+void	calculate_ray_direction(float start_x, t_ray *ray);
+float	degree_to_radians(int a) ;
 
 #endif
