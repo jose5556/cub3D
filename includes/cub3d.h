@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/15 23:07:12 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/15 23:12:59 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ typedef struct s_raycaster
 
 typedef struct s_player
 {
-	int		x;
-	int		y;
+	float	x;
+	float	y;
 	float	movement;
 	float	x_cos;
 	float	y_sin;

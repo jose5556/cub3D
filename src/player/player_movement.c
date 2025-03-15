@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/15 23:07:53 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/15 23:17:33 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	move_player_angle(t_game *game)
 {
 	if (game->player.left_direction)
-		game->player.angle -= degree_to_radians(3);
+		game->player.angle -= degree_to_radians(1);
 	if (game->player.right_direction)
-		game->player.angle += degree_to_radians(3);
+		game->player.angle += degree_to_radians(1);
 }
 
 static void	move_player_position(t_game *game)
