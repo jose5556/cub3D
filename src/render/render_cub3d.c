@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/15 20:16:55 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/15 23:06:08 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	render_cub3d(void *param)
 	game = (t_game *)param;
 	move_player(game);
 	clear_image(game);
-	draw_map(game);
-	draw_player(10, GREEN, game);
+	//draw_map(game);
+	//draw_player(10, GREEN, game);
 	set_ray_parameters(game, &fraction, &start_x);
 	render_raycaster(game, start_x, fraction);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/14 03:10:59 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/15 23:07:12 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@
 //PI
 # define PI 3.141592653589793238462643383279502884197
 
+typedef struct s_bob
+{
+	float	perp_wall_dist;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+}	t_bob;
+
 typedef struct s_raycaster
 {
 	float	x;
@@ -70,7 +78,7 @@ typedef struct s_player
 {
 	int		x;
 	int		y;
-	int		movement;
+	float	movement;
 	float	x_cos;
 	float	y_sin;
 	float	angle;
@@ -99,6 +107,7 @@ typedef struct s_game
 	t_img		img;
 	t_player	player;
 	t_ray		ray;
+	t_bob		bob;
 }	t_game;
 
 //init
@@ -108,6 +117,7 @@ void	init(t_game *game);
 int		render_cub3d(void *param);
 void	draw_player(int size, int color, t_game *game);
 void	render_raycaster(t_game *game, float start_x, float fraction);
+void	bob_builder(t_game *game, t_ray *ray, t_bob *bob, int side, int i);
 
 //events
 int		hooks_listener(t_game *game);

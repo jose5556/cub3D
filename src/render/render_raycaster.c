@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/15 20:40:52 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/15 23:04:38 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,30 @@ static void	calculate_step_sizes(t_player player, t_ray *ray,
 	}
 }
 
-static void	raycast_loop(t_game *game, t_ray *ray, int *map_x, int *map_y)
+static int	raycast_loop(t_game *game, t_ray *ray, int *map_x, int *map_y)
 {
+	int		side;
+
+	side = -1;
 	while (!touch_wall(*map_x, *map_y, game))
 	{
-		my_mlx_pixel_put(&game->img, ray->x, ray->y, RED);
+		//my_mlx_pixel_put(&game->img, ray->x, ray->y, RED);
 		if (ray->side_dist_x < ray->side_dist_y)
 		{
 			ray->side_dist_x += ray->delta_dist_x;
 			*map_x += ray->h_direction;
+			side = 1;
 		}
 		else
 		{
 			ray->side_dist_y += ray->delta_dist_y;
 			*map_y += ray->v_direction;
+			side = 0;
 		}
 		ray->x = *map_x;
 		ray->y = *map_y;
 	}
+	return (side);
 }
 
 static void	ray_caster_dda(t_game *game, float start_x, int i)
@@ -66,10 +72,13 @@ static void	ray_caster_dda(t_game *game, float start_x, int i)
 	t_ray	ray;
 	int		map_x;
 	int		map_y;
+	int		side;
 
 	calculate_ray_direction(start_x, &ray);
 	calculate_step_sizes(game->player, &ray, &map_x, &map_y);
-	raycast_loop(game, &ray, &map_x, &map_y);
+	side = raycast_loop(game, &ray, &map_x, &map_y);
+	if (side >= 0)
+		bob_builder(game, &ray, &game->bob, side, i);
 }
 
 void	render_raycaster(t_game *game, float start_x, float fraction)
