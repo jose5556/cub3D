@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_raycaster.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/14 03:09:41 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:10:23 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ static void	ray_caster_dda(t_game *game, float start_x, int i)
 
 void	render_raycaster(t_game *game, float start_x, float fraction)
 {
-	int i = -1;
+	int i;
+	
+	i = -1;
 	while (++i < WIDTH)
 	{
 		ray_caster_dda(game, start_x, i);
