@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:39:45 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 17:33:16 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/15 20:20:20 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	get_player_y(t_game *game)
 	}
 	return (-1);
 }
+
 int	get_player_x(t_game *game)
 {
 	int	i;
@@ -75,7 +76,7 @@ static char	get_player_chr(t_game *game)
 		}
 		i++;
 	}
-	return (0);	
+	return (0);
 }
 
 float	get_player_angle(t_game *game)

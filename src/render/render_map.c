@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:34:55 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/07 17:21:39 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/15 20:26:38 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	draw_map(t_game *game)
 		x = -1;
 		while (map[y][++x])
 		{
-			if(map[y][x] == '1')
+			if (map[y][x] == '1')
 				color = WHITE;
 			else
 				color = BLACK;
@@ -64,15 +64,15 @@ void	draw_map(t_game *game)
 
 char **get_map(void)   //temp func
 {
-    char **map;
+    char	**map;
 
 	map = malloc(sizeof(char *) * 11);
     map[0] = "111111111111111";
     map[1] = "100000000000001";
     map[2] = "100000000000001";
-    map[3] = "1000100000N0001";
+    map[3] = "100010000000001";
     map[4] = "100000000000001";
-    map[5] = "100000000000001";
+    map[5] = "1000000000N0001";
     map[6] = "100000000000001";
     map[7] = "100100000000001";
     map[8] = "100000000000001";

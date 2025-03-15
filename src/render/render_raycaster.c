@@ -6,12 +6,11 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/15 20:10:23 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/15 20:40:52 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
 
 static void	calculate_step_sizes(t_player player, t_ray *ray,
 						int *map_x, int *map_y)
@@ -75,8 +74,8 @@ static void	ray_caster_dda(t_game *game, float start_x, int i)
 
 void	render_raycaster(t_game *game, float start_x, float fraction)
 {
-	int i;
-	
+	int	i;
+
 	i = -1;
 	while (++i < WIDTH)
 	{

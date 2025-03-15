@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_cub3d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/14 03:06:35 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:16:55 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	draw_player(int size, int color, t_game *game)
 	{
 		j = -1;
 		while (++j < size)
-			my_mlx_pixel_put(&game->img, game->player.x + j, game->player.y + i, color);
+			my_mlx_pixel_put(&game->img, game->player.x + j,
+				game->player.y + i, color);
 	}
 }
 
@@ -50,7 +51,7 @@ int	render_cub3d(void *param)
 	move_player(game);
 	clear_image(game);
 	draw_map(game);
-	draw_player(10 ,GREEN, game);
+	draw_player(10, GREEN, game);
 	set_ray_parameters(game, &fraction, &start_x);
 	render_raycaster(game, start_x, fraction);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
