@@ -6,25 +6,11 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:27:14 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/15 23:05:07 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:21:35 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-static void	paint_walls(t_game *game, t_bob *bob, t_ray *ray, int side, int i)
-{
-	int	color;
-
-	color = RED;
-	if (side)
-		color /= 2;
-	while (bob->draw_start <= bob->draw_end)
-	{
-		my_mlx_pixel_put(&game->img, i, bob->draw_start, color);
-		bob->draw_start++;
-	}
-}
 
 void	bob_builder(t_game *game, t_ray *ray, t_bob *bob, int side, int i)
 {

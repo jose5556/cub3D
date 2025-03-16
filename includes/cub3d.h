@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 19:11:35 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:26:50 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,12 +139,18 @@ int		get_player_x(t_game *game);
 int		get_player_y(t_game *game);
 
 //render_map temp
-void	draw_square(int x, int y, int size, int color, t_game *game);
 char	**get_map(void);
+
+//pixels_handler
+void	paint_walls(t_game *game, t_bob *bob, t_ray *ray, int side, int i);
+void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
+void	draw_player(int size, int color, t_game *game);
+void	clear_image(t_game *game);
+void	draw_grid_lines(int x, int y, int size, int color, t_game *game);
+void	draw_square(int x, int y, int size, int color, t_game *game);
 void	draw_map(t_game *game);
 
 //utils
-void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 bool	touch_wall(float px, float py, t_game *game);
 bool	out_s_n(t_game *game, t_player *player, double move_speed, char p);
 bool	out_e_w(t_game *game, t_player *player, double move_speed, char p);

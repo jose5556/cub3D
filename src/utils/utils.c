@@ -6,22 +6,11 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:40:15 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 19:10:34 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:22:17 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-void	my_mlx_pixel_put(t_img *vars, int x, int y, int color)
-{
-	char	*dst;
-
-	if (x >= WIDTH || y >= HEIGHT || x < 0 || y < 0)
-		return ;
-	dst = vars->addr + (y * vars->line_length + x
-			* (vars->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
 
 double	degree_to_radians(int a)
 {
