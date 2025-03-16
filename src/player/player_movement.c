@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 19:12:19 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:15:55 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ static bool	is_out_map(t_game *game, t_player *player, double move_speed, char p
 
 static void	move_player_position(t_game *game, t_player *player, double move_speed)
 {
+	game->player.x_cos = cos(game->player.angle);
+	game->player.y_sin = sin(game->player.angle);
 	if (player->key_up && !is_out_map(game, player, move_speed, 'n'))
 	{
 		player->x += player->x_cos * move_speed;
@@ -63,7 +65,5 @@ void	move_player(t_game *game)
 	move_speed = 0.06;
 	angle_speed = 1;
 	move_player_angle(&game->player, angle_speed);
-	game->player.x_cos = cos(game->player.angle);
-	game->player.y_sin = sin(game->player.angle);
 	move_player_position(game, &game->player, move_speed);
 }
