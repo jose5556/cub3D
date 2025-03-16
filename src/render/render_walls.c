@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:27:14 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/16 19:21:35 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:31:37 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,12 @@ void	bob_builder(t_game *game, t_ray *ray, t_bob *bob, int side, int i)
 		bob->perp_wall_dist = ray->side_dist_x - ray->delta_dist_x;
 	else
 		bob->perp_wall_dist = ray->side_dist_y - ray->delta_dist_y;
-
 	bob->line_height = (int)(HEIGHT / bob->perp_wall_dist);
-
 	bob->draw_start = -bob->line_height / 2 + HEIGHT / 2;
-	if(bob->draw_start < 0)
+	if (bob->draw_start < 0)
 		bob->draw_start = 0;
-
 	bob->draw_end = bob->line_height / 2 + HEIGHT / 2;
-	if(bob->draw_end >= HEIGHT)
+	if (bob->draw_end >= HEIGHT)
 		bob->draw_end = HEIGHT - 1;
 	paint_walls(game, bob, ray, side, i);
 }

@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 19:26:50 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:34:00 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,7 +157,7 @@ bool	out_e_w(t_game *game, t_player *player, double move_speed, char p);
 void	set_ray_parameters(t_game *game, float *fraction, float *start_x);
 void	calculate_ray_direction(float start_x, t_ray *ray);
 double	degree_to_radians(int a);
-double	get_ticks();
-double	get_fps();
+double	get_ticks(void);
+double	get_fps(void);
 
 #endif

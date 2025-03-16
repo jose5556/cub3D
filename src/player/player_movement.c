@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 19:15:55 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:38:21 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static void	move_player_angle(t_player *player, double angle_speed)
 		player->angle += degree_to_radians(angle_speed);
 }
 
-static bool	is_out_map(t_game *game, t_player *player, double move_speed, char p)
+static bool	is_out_map(t_game *game, t_player *player,
+		double move_speed, char p)
 {
 	float	py;
 	float	px;
@@ -31,7 +32,8 @@ static bool	is_out_map(t_game *game, t_player *player, double move_speed, char p
 		return (out_e_w(game, player, move_speed, p));
 }
 
-static void	move_player_position(t_game *game, t_player *player, double move_speed)
+static void	move_player_position(t_game *game,
+		t_player *player, double move_speed)
 {
 	game->player.x_cos = cos(game->player.angle);
 	game->player.y_sin = sin(game->player.angle);
@@ -61,7 +63,7 @@ void	move_player(t_game *game)
 {
 	double	move_speed;
 	double	angle_speed;
-	
+
 	move_speed = 0.06;
 	angle_speed = 1;
 	move_player_angle(&game->player, angle_speed);

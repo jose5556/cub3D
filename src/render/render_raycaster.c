@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/15 23:04:38 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:30:38 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static int	raycast_loop(t_game *game, t_ray *ray, int *map_x, int *map_y)
 	side = -1;
 	while (!touch_wall(*map_x, *map_y, game))
 	{
-		//my_mlx_pixel_put(&game->img, ray->x, ray->y, RED);
 		if (ray->side_dist_x < ray->side_dist_y)
 		{
 			ray->side_dist_x += ray->delta_dist_x;

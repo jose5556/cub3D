@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:24:16 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/16 19:27:01 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 19:33:13 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	draw_grid_lines(int x, int y, int size, int color, t_game *game)
 
 	i = -1;
 	while (++i < size)
-		my_mlx_pixel_put(&game->img, x, y + i, color); //vertical
+		my_mlx_pixel_put(&game->img, x, y + i, color);
 	i = -1;
 	while (++i < size)
-		my_mlx_pixel_put(&game->img, x + i, y, color);  //horizontal
+		my_mlx_pixel_put(&game->img, x + i, y, color);
 }
 
 void	draw_square(int x, int y, int size, int color, t_game *game)
