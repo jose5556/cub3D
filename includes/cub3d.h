@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/15 23:12:59 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 18:08:21 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
 # include <math.h>
 # include <stdio.h>
 # include <stdbool.h>
+# include <sys/time.h>
 
 //SCREEN SIZE
 # define HEIGHT	720
 # define WIDTH	1280
-# define SIZE	64
+# define SIZE	8
 
 //ERROR MESSAGES
 # define STANDART_ERROR		"Error\n"
@@ -50,6 +51,9 @@
 
 //PI
 # define PI 3.141592653589793238462643383279502884197
+
+//FPS STABILIZER
+# define FRAME_AVERAGE 500
 
 typedef struct s_bob
 {
@@ -78,7 +82,6 @@ typedef struct s_player
 {
 	float	x;
 	float	y;
-	float	movement;
 	float	x_cos;
 	float	y_sin;
 	float	angle;
@@ -145,6 +148,8 @@ void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 bool	touch_wall(float px, float py, t_game *game);
 void	set_ray_parameters(t_game *game, float *fraction, float *start_x);
 void	calculate_ray_direction(float start_x, t_ray *ray);
-float	degree_to_radians(int a) ;
+double	degree_to_radians(int a);
+double	get_ticks();
+double	get_fps();
 
 #endif

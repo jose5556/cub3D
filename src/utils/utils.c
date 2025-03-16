@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:40:15 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/15 20:18:36 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 17:12:58 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	my_mlx_pixel_put(t_img *vars, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-float	degree_to_radians(int a)
+double	degree_to_radians(int a)
 {
 	return (a * PI / 180.0);
 }
