@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   in_out_bounds.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:40:15 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 19:33:33 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 23:08:11 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-double	degree_to_radians(int a)
+bool	is_out_map(t_game *game, t_player *player,
+	double move_speed, char p)
 {
-	return (a * PI / 180.0);
-}
+float	py;
+float	px;
 
-bool	touch_wall(float px, float py, t_game *game)
-{
-	int	x;
-	int	y;
-
-	x = px / SIZE;
-	y = py / SIZE;
-	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
-		return (true);
-	if (game->map[y][x] == '1')
-		return (true);
-	return (false);
+if (p == 'n' || p == 's')
+	return (out_s_n(game, player, move_speed, p));
+else
+	return (out_e_w(game, player, move_speed, p));
 }
 
 bool	out_s_n(t_game *game, t_player *player, double move_speed, char p)

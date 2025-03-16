@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 21:46:52 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 22:47:11 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	render_cub3d(void *param)
 	float	start_x;
 
 	game = (t_game *)param;
-	printf("%f\n", get_fps());
+	//printf("%f\n", get_fps());
 	move_player(game);
 	clear_image(game);
 	set_ray_parameters(game, &fraction, &start_x);

@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 19:34:00 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/16 23:08:30 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 # include <stdbool.h>
 # include <sys/time.h>
 
-//SCREEN SIZE
+//SCREEN / PLAYER SIZE
 # define HEIGHT	720
 # define WIDTH	1280
 # define SIZE	8
+# define RADIUS	4;
 
 //ERROR MESSAGES
 # define STANDART_ERROR		"Error\n"
@@ -137,6 +138,9 @@ float	get_player_angle(t_game *game);
 void	move_player(t_game *game);
 int		get_player_x(t_game *game);
 int		get_player_y(t_game *game);
+bool	is_out_map(t_game *game, t_player *player, double move_speed, char p);
+bool	out_s_n(t_game *game, t_player *player, double move_speed, char p);
+bool	out_e_w(t_game *game, t_player *player, double move_speed, char p);
 
 //render_map temp
 char	**get_map(void);
@@ -152,8 +156,6 @@ void	draw_map(t_game *game);
 
 //utils
 bool	touch_wall(float px, float py, t_game *game);
-bool	out_s_n(t_game *game, t_player *player, double move_speed, char p);
-bool	out_e_w(t_game *game, t_player *player, double move_speed, char p);
 void	set_ray_parameters(t_game *game, float *fraction, float *start_x);
 void	calculate_ray_direction(float start_x, t_ray *ray);
 double	degree_to_radians(int a);
