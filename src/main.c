@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/14 03:18:18 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/16 19:28:31 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(void)
 	/* if (argc != 2)
 		return (simple_exit_error(ARGUMENTS_ERROR)); */
 	ft_bzero(&game, 0);
+	ft_bzero(&game.mlx, 0);
 	//map_validation();  TODO
 	init(&game);
 	render_cub3d(&game);
