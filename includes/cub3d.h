@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/17 17:53:40 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/17 18:09:08 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@
 //SCREEN / PLAYER SIZE
 # define HEIGHT			720
 # define WIDTH			1280
-# define MINIMAP_SIZE	8
-# define SIZE			2
+# define SIZE			7
 # define RADIUS			4
 
 //ERROR MESSAGES
