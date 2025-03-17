@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/16 19:30:38 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/17 17:34:52 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ static int	raycast_loop(t_game *game, t_ray *ray, int *map_x, int *map_y)
 		{
 			ray->side_dist_x += ray->delta_dist_x;
 			*map_x += ray->h_direction;
-			side = 1;
+			side = 0;
 		}
 		else
 		{
 			ray->side_dist_y += ray->delta_dist_y;
 			*map_y += ray->v_direction;
-			side = 0;
+			side = 1;
 		}
 		ray->x = *map_x;
 		ray->y = *map_y;
