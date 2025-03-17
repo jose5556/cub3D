@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 23:08:30 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/17 17:53:40 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@
 # include <sys/time.h>
 
 //SCREEN / PLAYER SIZE
-# define HEIGHT	720
-# define WIDTH	1280
-# define SIZE	8
-# define RADIUS	4;
+# define HEIGHT			720
+# define WIDTH			1280
+# define MINIMAP_SIZE	8
+# define SIZE			2
+# define RADIUS			4
 
 //ERROR MESSAGES
 # define STANDART_ERROR		"Error\n"
