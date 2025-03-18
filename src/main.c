@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 21:38:39 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 22:56:22 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int	main(void)
 	mlx_loop(game.mlx);
 }
 
-//bus that make me wanna cry
+//Stubborn bugs that still make me wanna cry
 
 // 1-> player can go throw some corners that has valid map behind;
-// 2-> if the map has diferent rows, minimap is a bit buggy, but game has no probs;
 
 //TODO
 // 1-> circular radius colision;
+// 2-> roof and floor

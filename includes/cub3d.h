@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 21:40:57 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:05:03 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 //SCREEN / PLAYER SIZE
 # define HEIGHT			720
 # define WIDTH			1280
-# define SIZE			15
+# define SIZE			2
+# define MINIMAP_SIZE	9
 # define RADIUS			4
 
 //ERROR MESSAGES
@@ -122,7 +123,7 @@ void	init(t_game *game);
 int		render_cub3d(void *param);
 void	draw_player(int size, int color, t_game *game);
 void	render_raycaster(t_game *game, float start_x, float fraction);
-void	bob_builder(t_game *game, t_ray *ray, t_bob *bob, int side, int i);
+void	bob_builder(t_game *game, t_ray *ray, t_bob *bob, int side, int i, float start_x);
 
 //events
 int		hooks_listener(t_game *game);
@@ -147,7 +148,7 @@ bool	out_e_w(t_game *game, t_player *player, double move_speed, char p);
 char	**get_map(void);
 
 //pixels_handler
-void	paint_walls(t_game *game, t_bob *bob, t_ray *ray, int side, int i);
+void	paint_walls(t_game *game, t_bob *bob, int side, int i);
 void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 void	draw_player(int size, int color, t_game *game);
 void	clear_image(t_game *game);

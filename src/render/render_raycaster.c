@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/17 17:34:52 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:05:22 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	ray_caster_dda(t_game *game, float start_x, int i)
 	calculate_step_sizes(game->player, &ray, &map_x, &map_y);
 	side = raycast_loop(game, &ray, &map_x, &map_y);
 	if (side >= 0)
-		bob_builder(game, &ray, &game->bob, side, i);
+		bob_builder(game, &ray, &game->bob, side, i, start_x);
 }
 
 void	render_raycaster(t_game *game, float start_x, float fraction)
