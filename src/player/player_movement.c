@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 21:43:53 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 22:39:13 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ static void	move_player_angle(t_player *player, double angle_speed)
 		player->angle -= degree_to_radians(angle_speed);
 	if (player->right_direction)
 		player->angle += degree_to_radians(angle_speed);
+	player->angle = fmod(player->angle, 2 * PI);
+	if (player->angle < 0)
+		player->angle += 2 * PI;
 }
 
 static void	move_player_position(t_game *game,
 		t_player *player, double move_speed)
 {
-	game->player.x_cos = cos(game->player.angle);
-	game->player.y_sin = sin(game->player.angle);
 	if (player->key_up && !is_out_map(game, player, move_speed, 'n'))
 	{
 		player->x += player->x_cos * move_speed;
@@ -55,8 +56,9 @@ void	move_player(t_game *game)
 	move_speed = 0.03;
 	angle_speed = 1;
 	move_player_angle(&game->player, angle_speed);
+	game->player.x_cos = cos(game->player.angle);
+	game->player.y_sin = sin(game->player.angle);
 	if (game->player.shift)
-		move_player_position(game, &game->player, move_speed * 10);
-	else
-		move_player_position(game, &game->player, move_speed);
+		move_speed *= 5;
+	move_player_position(game, &game->player, move_speed);
 }

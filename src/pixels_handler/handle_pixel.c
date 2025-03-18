@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:21:19 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/18 21:06:18 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 22:04:22 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,18 @@ void	clear_image(t_game *game)
 	}
 }
 
-void	paint_walls(t_game *game, t_bob *bob, t_ray *ray, int side, int i)
+void	paint_walls(t_game *game, t_bob *bob, int side, int i)
 {
 	int	color;
+	int	y;
 
 	color = RED;
 	if (side)
-		color /= 2;
-	while (bob->draw_start <= bob->draw_end)
+		color = (color >> 1);
+	y = bob->draw_start;
+	while (y <= bob->draw_end)
 	{
-		my_mlx_pixel_put(&game->img, i, bob->draw_start, color);
-		bob->draw_start++;
+		my_mlx_pixel_put(&game->img, i, y, color);
+		y++;
 	}
 }
