@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 23:05:03 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:19:02 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ void	draw_map(t_game *game);
 bool	touch_wall(float px, float py, t_game *game);
 void	set_ray_parameters(t_game *game, float *fraction, float *start_x);
 void	calculate_ray_direction(float start_x, t_ray *ray);
-double	degree_to_radians(int a);
+double	degree_to_radians(float a);
 double	get_ticks(void);
 double	get_fps(void);
 

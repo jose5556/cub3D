@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:56:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 22:01:08 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:18:55 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	calculate_ray_direction(float start_x, t_ray *ray)
 	ray->dir_y = sinf(start_x);
 }
 
-double	degree_to_radians(int a)
+double	degree_to_radians(float a)
 {
 	return (a * PI / 180.0);
 }
