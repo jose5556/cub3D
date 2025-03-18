@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/17 18:09:08 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 21:40:57 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 //SCREEN / PLAYER SIZE
 # define HEIGHT			720
 # define WIDTH			1280
-# define SIZE			7
+# define SIZE			15
 # define RADIUS			4
 
 //ERROR MESSAGES
@@ -86,6 +86,7 @@ typedef struct s_player
 	float	x_cos;
 	float	y_sin;
 	float	angle;
+	bool	shift;
 	bool	key_up;
     bool	key_down;
     bool	key_left;

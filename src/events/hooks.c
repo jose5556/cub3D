@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/04 15:56:55 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/18 21:43:09 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	handle_keys_press(int keycode, t_game *game)
 		game->player.left_direction = true;
 	if (keycode == XK_Right)
 		game->player.right_direction = true;
+	if (keycode == XK_Shift_L)
+		game->player.shift = true;
 	return (0);
 }
 
@@ -56,4 +58,7 @@ int	handle_keys_released(int keycode, t_game *game)
 		game->player.left_direction = false;
 	if (keycode == XK_Right)
 		game->player.right_direction = false;
+	if (keycode == XK_Shift_L)
+		game->player.shift = false;
+	return (0);
 }

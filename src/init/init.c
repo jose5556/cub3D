@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/16 19:31:59 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 21:10:11 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@
 	
 } */
 
-static void	init_player(t_game *game)
+static void	init_player(t_player *player, t_game *game)
 {
-	game->player.y = get_player_y(game);
-	game->player.x = get_player_x(game);
-	game->player.angle = get_player_angle(game);
-	game->player.x_cos = cos(game->player.angle);
-	game->player.y_sin = sin(game->player.angle);
-	game->player.key_down = false;
-	game->player.key_up = false;
-	game->player.key_right = false;
-	game->player.key_left = false;
-	game->player.left_direction = false;
-	game->player.right_direction = false;
+	player->y = get_player_y(game);
+	player->x = get_player_x(game);
+	if (touch_wall(player->x, player->y, game))
+		ft_test();
+	player->angle = get_player_angle(game);
+	player->x_cos = cos(player->angle);
+	player->y_sin = sin(player->angle);
+	player->key_down = false;
+	player->key_up = false;
+	player->key_right = false;
+	player->key_left = false;
+	player->left_direction = false;
+	player->right_direction = false;
 }
 
 static void	init_mlx(t_game *game)
@@ -51,5 +53,5 @@ void	init(t_game *game)
 {
 	init_mlx(game);
 	game->map = get_map();
-	init_player(game);
+	init_player(&game->player, game);
 }
