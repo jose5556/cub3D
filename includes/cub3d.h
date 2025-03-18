@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 23:19:02 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:34:56 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@
 # define PI 3.141592653589793238462643383279502884197
 
 //FPS STABILIZER
-# define FRAME_AVERAGE 500
+# define FRAME_AVERAGE 60
 
 typedef struct s_bob
 {

@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 23:21:58 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:34:06 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,30 +23,65 @@ static void	move_player_angle(t_player *player, double angle_speed)
 		player->angle += 2 * PI;
 }
 
-static void	move_player_position(t_game *game,
-		t_player *player, double move_speed)
+static void	move_up_down(t_game *game,
+	t_player *player, double move_speed)
 {
-	if (player->key_up && !is_out_map(game, player, move_speed, 'n'))
+	float new_x;
+	float new_y;
+
+	if (player->key_up)
 	{
-		player->x += player->x_cos * move_speed;
-		player->y += player->y_sin * move_speed;
+		new_x = player->x + player->x_cos * move_speed;
+		new_y = player->y + player->y_sin * move_speed;
+		if (!touch_wall(new_x, player->y, game))
+			player->x = new_x;
+		if (!touch_wall(player->x, new_y, game))
+			player->y = new_y;
 	}
-	if (player->key_down && !is_out_map(game, player, move_speed, 's'))
+	if (player->key_down)
 	{
-		player->x -= player->x_cos * move_speed;
-		player->y -= player->y_sin * move_speed;
-	}
-	if (player->key_left && !is_out_map(game, player, move_speed, 'e'))
-	{
-		player->x += player->y_sin * move_speed;
-		player->y -= player->x_cos * move_speed;
-	}
-	if (player->key_right && !is_out_map(game, player, move_speed, 'w'))
-	{
-		player->x -= player->y_sin * move_speed;
-		player->y += player->x_cos * move_speed;
+		new_x = player->x - player->x_cos * move_speed;
+		new_y = player->y - player->y_sin * move_speed;
+		if (!touch_wall(new_x, player->y, game))
+			player->x = new_x;
+		if (!touch_wall(player->x, new_y, game))
+			player->y = new_y;
 	}
 }
+
+static void	move_left_right(t_game *game,
+	t_player *player, double move_speed)
+{
+	float new_x;
+	float new_y;
+
+	if (player->key_left)
+	{
+		new_x = player->x + player->y_sin * move_speed;
+		new_y = player->y - player->x_cos * move_speed;
+		if (!touch_wall(new_x, player->y, game))
+			player->x = new_x;
+		if (!touch_wall(player->x, new_y, game))
+			player->y = new_y;
+	}
+	if (player->key_right)
+	{
+		new_x = player->x - player->y_sin * move_speed;
+		new_y = player->y + player->x_cos * move_speed;
+		if (!touch_wall(new_x, player->y, game))
+			player->x = new_x;
+		if (!touch_wall(player->x, new_y, game))
+			player->y = new_y;
+	}
+}
+
+static void	move_player_position(t_game *game,
+	t_player *player, double move_speed)
+{
+	move_left_right(game, player, move_speed);
+	move_up_down(game, player, move_speed);
+}
+
 
 void	move_player(t_game *game)
 {
@@ -55,12 +90,12 @@ void	move_player(t_game *game)
 	float	fps;
 
 	fps = get_fps();
-	move_speed = 0.07 * (60.0 / fps);
-	angle_speed = 0.5;
+	move_speed = 0.08 * (60.0 / fps);
+	angle_speed = 0.7;
 	if (game->player.shift)
 	{
-		angle_speed *= 3;
-		move_speed *= 5;		
+		angle_speed *= 2;
+		move_speed *= 3;		
 	}
 	move_player_angle(&game->player, angle_speed);
 	game->player.x_cos = cos(game->player.angle);
