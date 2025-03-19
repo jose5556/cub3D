@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/18 23:05:22 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:49:34 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,21 @@ static void	ray_caster_dda(t_game *game, float start_x, int i)
 void	render_raycaster(t_game *game, float start_x, float fraction)
 {
 	int	i;
+	int	y;
 
+	y = -1;
+	while (++y < HEIGHT / 2)
+	{
+		i = -1;
+		while (++i < WIDTH)
+			my_mlx_pixel_put(&game->img, i, y, LIGHT_BLUE);
+	}
+	while (++y < HEIGHT)
+	{
+		i = -1;
+		while (++i < WIDTH)
+			my_mlx_pixel_put(&game->img, i, y, GREEN);
+	}
 	i = -1;
 	while (++i < WIDTH)
 	{

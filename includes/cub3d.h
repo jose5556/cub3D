@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 23:34:56 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:49:19 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 # define GREEN			0x00FF00
 # define GRAY			0x888888
 # define BLUE			0x00008B
-
+# define LIGHT_BLUE		0xADD8E6
 //PI
 # define PI 3.141592653589793238462643383279502884197
 

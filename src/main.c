@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 22:56:22 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/18 23:52:27 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,4 @@ int	main(void)
 // 1-> player can go throw some corners that has valid map behind;
 
 //TODO
-// 1-> circular radius colision;
-// 2-> roof and floor
+// 1-> texture
