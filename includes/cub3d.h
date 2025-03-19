@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 19:43:32 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 22:55:10 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@
 //SCREEN / PLAYER SIZE
 # define HEIGHT			720
 # define WIDTH			1280
-# define SIZE			2
-# define MINIMAP_SIZE	9
+# define SIZE			15
 # define RADIUS			4
 
 //ERROR MESSAGES
@@ -143,9 +142,6 @@ float	get_player_angle(t_game *game);
 void	move_player(t_game *game);
 int		get_player_x(t_game *game);
 int		get_player_y(t_game *game);
-bool	is_out_map(t_game *game, t_player *player, double move_speed, char p);
-bool	out_s_n(t_game *game, t_player *player, double move_speed, char p);
-bool	out_e_w(t_game *game, t_player *player, double move_speed, char p);
 
 //render_map temp
 char	**get_map(void);
@@ -160,6 +156,7 @@ void	paint_floor_ceil(t_game *game);
 
 //utils
 bool	touch_wall(float px, float py, t_game *game);
+bool	is_inside_wall(float px, float py, float radius, t_game *game);
 void	set_ray_parameters(t_game *game, float *fraction, float *start_x);
 void	calculate_ray_direction(float start_x, t_ray *ray);
 double	degree_to_radians(float a);
