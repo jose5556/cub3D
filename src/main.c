@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 18:48:30 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 22:57:07 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(void)
 
 //Stubborn bugs that still make me wanna cry
 
-// 1-> minimap size
+// 1-> nothing for now
 
 //TODO
 // 1-> texture
