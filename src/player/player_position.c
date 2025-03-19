@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:39:45 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 21:28:07 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 22:22:55 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	get_player_y(t_game *game)
 		while (game->map[i][j])
 		{
 			if (is_player(game->map[i][j]))
-				return (i * SIZE + (SIZE / 2));
+				return (i);
 			j++;
 		}
 		i++;
@@ -51,7 +51,7 @@ int	get_player_x(t_game *game)
 		while (game->map[i][j])
 		{
 			if (is_player(game->map[i][j]))
-				return (j * SIZE + (SIZE / 2));
+				return (j);
 			j++;
 		}
 		i++;

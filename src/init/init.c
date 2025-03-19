@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 19:00:26 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 22:29:59 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@
 
 static void	init_player(t_player *player, t_game *game)
 {
-	player->y = get_player_y(game);
-	player->x = get_player_x(game);
-	if (touch_wall(player->x, player->y, game))
-		ft_test();
+	player->y = get_player_y(game) + 0.5;
+	player->x = get_player_x(game) + 0.5;
 	player->angle = get_player_angle(game);
 	player->x_cos = cos(player->angle);
 	player->y_sin = sin(player->angle);
