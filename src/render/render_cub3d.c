@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 23:41:32 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:03:54 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ int	render_cub3d(void *param)
 	//printf("%f\n", get_fps());
 	move_player(game);
 	clear_image(game);
+	paint_floor_ceil(game);
 	set_ray_parameters(game, &fraction, &start_x);
 	render_raycaster(game, start_x, fraction);
 	draw_map(game);  //minimap?
-	draw_player(SIZE / 2, GREEN, game);
+	draw_player(MINIMAP_SIZE / 2, GREEN, game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
 	return (0);
 }
