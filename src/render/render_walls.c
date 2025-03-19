@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:27:14 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/19 19:51:50 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 22:58:03 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ void	bob_builder(t_game *game, int side, int pixel_x, float start_x)
 	int		color;
 	t_ray	ray;
 	t_bob	bob;
+	float	aspect_ratio;
 
+	aspect_ratio = (float)WIDTH / HEIGHT;
 	ray = game->ray;
 	bob = game->bob;
 	correct_angle = cosf(game->player.angle - start_x);
@@ -49,7 +51,7 @@ void	bob_builder(t_game *game, int side, int pixel_x, float start_x)
 	else
 		bob.perp_wall_dist = (ray.side_dist_x - ray.delta_dist_x)
 			* correct_angle;
-	bob.line_height = (int)(HEIGHT / bob.perp_wall_dist);
+	bob.line_height = (int)(HEIGHT / (bob.perp_wall_dist) * aspect_ratio);
 	bob.draw_start = HEIGHT / 2 - bob.line_height / 2;
 	if (bob.draw_start < 0)
 		bob.draw_start = 0;

@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:56:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 19:28:23 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 22:27:03 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	set_ray_parameters(t_game *game, float *fraction, float *start_x)
 {
-	*fraction = PI / 3 / WIDTH;
-	*start_x = game->player.angle - (PI / 3) / 2;
+	*fraction = PI / 4 / WIDTH;
+	*start_x = game->player.angle - (PI / 4) / 2;
 }
 
 void	calculate_ray_direction(float start_x, t_ray *ray)
@@ -31,14 +31,9 @@ double	degree_to_radians(float a)
 
 bool	touch_wall(float px, float py, t_game *game)
 {
-	int	x;
-	int	y;
-
-	x = px / SIZE;
-	y = py / SIZE;
-	if (x < 0 || x >= WIDTH || y < 0 || y >= HEIGHT)
+	if (px < 0 || px >= WIDTH || py < 0 || py >= HEIGHT)
 		return (true);
-	if (game->map[y][x] == '1')
+	if (game->map[(int)py][(int)px] == '1')
 		return (true);
 	return (false);
 }
