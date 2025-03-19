@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 00:08:42 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 18:48:04 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int	main(void)
 
 //Stubborn bugs that still make me wanna cry
 
-// 1-> player can go throw some corners that has valid map behind;
-// 2-> minimap size
+// 1-> minimap size
 
 //TODO
 // 1-> texture
