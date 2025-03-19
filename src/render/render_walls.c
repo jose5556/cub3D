@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:27:14 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/18 23:06:30 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 18:45:55 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	bob_builder(t_game *game, t_ray *ray, t_bob *bob, int side, int i, float start_x)
 {
-	float correct_angle;
+	float	correct_angle;
+	int		color;
 	
 	correct_angle= cosf(game->player.angle - start_x);
 	if (side)
@@ -28,5 +29,19 @@ void	bob_builder(t_game *game, t_ray *ray, t_bob *bob, int side, int i, float st
 	bob->draw_end = HEIGHT / 2 + bob->line_height / 2;
 	if (bob->draw_end > HEIGHT - 1)
 		bob->draw_end = HEIGHT - 1;
-	paint_walls(game, bob, side, i);
+	if (side == 0)
+	{
+		if (ray->h_direction > 0)
+			color = RED;
+		else
+			color = PINK;
+	}
+	else
+	{
+		if (ray->v_direction > 0)
+			color = PURPLE;
+		else
+			color = BROWN;
+	}
+	paint_walls(game, bob, color, i);
 }

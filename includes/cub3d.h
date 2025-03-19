@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 23:49:19 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 18:46:33 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@
 # define BLACK			0x000000
 # define WHITE			0xFFFFFF
 # define RED			0xFF0000
+# define PURPLE			0xA020F0
+# define PINK			0xFF0084
+# define BROWN			0x964B00
 # define GREEN			0x00FF00
 # define GRAY			0x888888
 # define BLUE			0x00008B
@@ -148,7 +151,7 @@ bool	out_e_w(t_game *game, t_player *player, double move_speed, char p);
 char	**get_map(void);
 
 //pixels_handler
-void	paint_walls(t_game *game, t_bob *bob, int side, int i);
+void	paint_walls(t_game *game, t_bob *bob, int wall_color, int i);
 void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 void	draw_player(int size, int color, t_game *game);
 void	clear_image(t_game *game);
