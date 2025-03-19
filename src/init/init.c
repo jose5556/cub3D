@@ -6,13 +6,13 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 21:10:11 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:00:26 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-/* static void	init_map(t_coisa coisa) TODO
+/* static void	init_map(t_coisa coisa) TODO MAYBE?
 {
 	
 } */
@@ -32,6 +32,7 @@ static void	init_player(t_player *player, t_game *game)
 	player->key_left = false;
 	player->left_direction = false;
 	player->right_direction = false;
+	player->shift = false;
 }
 
 static void	init_mlx(t_game *game)
