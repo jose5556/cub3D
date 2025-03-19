@@ -6,11 +6,9 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 18:48:04 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 18:48:30 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// https://lodev.org/cgtutor/raycasting.html
 
 #include "../includes/cub3d.h"
 
@@ -29,6 +27,8 @@ int	main(void)
 	mlx_loop_hook(game.mlx, render_cub3d, &game);
 	mlx_loop(game.mlx);
 }
+
+// https://lodev.org/cgtutor/raycasting.html
 
 //Stubborn bugs that still make me wanna cry
 
