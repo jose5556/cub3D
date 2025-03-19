@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:40:15 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 21:16:41 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:27:59 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 bool	is_out_map(t_game *game, t_player *player,
 	double move_speed, char p)
 {
-float	py;
-float	px;
+	float	py;
+	float	px;
 
-if (p == 'n' || p == 's')
-	return (out_s_n(game, player, move_speed, p));
-else
-	return (out_e_w(game, player, move_speed, p));
+	if (p == 'n' || p == 's')
+		return (out_s_n(game, player, move_speed, p));
+	else
+		return (out_e_w(game, player, move_speed, p));
 }
 
 bool	out_s_n(t_game *game, t_player *player, double move_speed, char p)

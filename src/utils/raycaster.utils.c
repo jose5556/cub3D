@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:56:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 23:18:55 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:28:23 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ double	degree_to_radians(float a)
 {
 	return (a * PI / 180.0);
 }
+
 bool	touch_wall(float px, float py, t_game *game)
 {
 	int	x;

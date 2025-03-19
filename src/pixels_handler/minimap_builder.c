@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:24:16 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/18 22:25:34 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:48:43 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,7 @@ void	draw_player(int size, int color, t_game *game)
 	}
 }
 
-void	draw_grid_lines(int x, int y, int size, int color, t_game *game)
-{
-	int	i;
-
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img, x, y + i, color);
-	i = -1;
-	while (++i < size)
-		my_mlx_pixel_put(&game->img, x + i, y, color);
-}
-
-void	draw_square(int x, int y, int size, int color, t_game *game)
+static void	draw_square(int x, int y, int size, int color, t_game *game)
 {
 	int	i;
 	int	j;
@@ -51,6 +39,18 @@ void	draw_square(int x, int y, int size, int color, t_game *game)
 		while (++j < size)
 			my_mlx_pixel_put(&game->img, x + j, y + i, color);
 	}
+}
+
+static void	draw_grid_lines(int x, int y, int size, t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i < size)
+		my_mlx_pixel_put(&game->img, x, y + i, GRAY);
+	i = -1;
+	while (++i < size)
+		my_mlx_pixel_put(&game->img, x + i, y, GRAY);
 }
 
 void	draw_map(t_game *game)
@@ -68,14 +68,14 @@ void	draw_map(t_game *game)
 		while (map[y][++x])
 		{
 			if (map[y][x] == '1')
-			draw_square(x * MINIMAP_SIZE, y * MINIMAP_SIZE,
-				MINIMAP_SIZE, WHITE, game);
+				draw_square(x * MINIMAP_SIZE, y * MINIMAP_SIZE,
+					MINIMAP_SIZE, WHITE, game);
 			else
 			{
 				draw_square(x * MINIMAP_SIZE, y * MINIMAP_SIZE,
 					MINIMAP_SIZE, 0, game);
 				draw_grid_lines(x * MINIMAP_SIZE, y * MINIMAP_SIZE,
-					MINIMAP_SIZE, GRAY, game);
+					MINIMAP_SIZE, game);
 			}
 		}
 	}

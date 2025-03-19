@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 18:46:33 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:43:32 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	init(t_game *game);
 int		render_cub3d(void *param);
 void	draw_player(int size, int color, t_game *game);
 void	render_raycaster(t_game *game, float start_x, float fraction);
-void	bob_builder(t_game *game, t_ray *ray, t_bob *bob, int side, int i, float start_x);
+void	bob_builder(t_game *game, int side, int pixel_x, float start_x);
 
 //events
 int		hooks_listener(t_game *game);
@@ -151,20 +151,18 @@ bool	out_e_w(t_game *game, t_player *player, double move_speed, char p);
 char	**get_map(void);
 
 //pixels_handler
-void	paint_walls(t_game *game, t_bob *bob, int wall_color, int i);
+void	paint_walls(t_game *game, t_bob *bob, int wall_color, int pixel_x);
 void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 void	draw_player(int size, int color, t_game *game);
 void	clear_image(t_game *game);
-void	draw_grid_lines(int x, int y, int size, int color, t_game *game);
-void	draw_square(int x, int y, int size, int color, t_game *game);
 void	draw_map(t_game *game);
+void	paint_floor_ceil(t_game *game);
 
 //utils
 bool	touch_wall(float px, float py, t_game *game);
 void	set_ray_parameters(t_game *game, float *fraction, float *start_x);
 void	calculate_ray_direction(float start_x, t_ray *ray);
 double	degree_to_radians(float a);
-double	get_ticks(void);
 double	get_fps(void);
 
 #endif

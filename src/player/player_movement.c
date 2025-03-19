@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 23:51:40 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:27:35 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ static void	move_player_position(t_game *game,
 	move_up_down(game, player, move_speed);
 }
 
-
 void	move_player(t_game *game)
 {
 	double	move_speed;
@@ -95,7 +94,7 @@ void	move_player(t_game *game)
 	if (game->player.shift)
 	{
 		angle_speed *= 2;
-		move_speed *= 3;		
+		move_speed *= 3;
 	}
 	move_player_angle(&game->player, angle_speed);
 	game->player.x_cos = cos(game->player.angle);
