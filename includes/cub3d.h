@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 22:55:10 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 07:03:51 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include "../libs/libft/libft.h"
 # include <X11/keysym.h>
 # include <X11/X.h>
+# include <X11/Xlib.h>
+# include <X11/Xutil.h>
 # include <unistd.h>
 # include <math.h>
 # include <stdio.h>
@@ -24,9 +26,9 @@
 # include <sys/time.h>
 
 //SCREEN / PLAYER SIZE
-# define HEIGHT			720
-# define WIDTH			1280
-# define SIZE			15
+# define HEIGHT			1080
+# define WIDTH			1980
+# define SIZE			10
 # define RADIUS			4
 
 //ERROR MESSAGES
@@ -131,6 +133,7 @@ void	bob_builder(t_game *game, int side, int pixel_x, float start_x);
 int		hooks_listener(t_game *game);
 int		handle_keys_press(int keycode, t_game *game);
 int		handle_keys_released(int keycode, t_game *game);
+int		handle_mouse(int t, int x, t_game *game);
 
 //exit
 int		close_program_hook(t_game *game);

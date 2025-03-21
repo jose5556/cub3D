@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/18 21:43:09 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 07:06:24 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	hooks_listener(t_game *game)
 		handle_keys_released, game);
 	mlx_hook(game->win, DestroyNotify, NoEventMask,
 		close_program_hook, game);
+	mlx_hook(game->win, MotionNotify, PointerMotionMask,
+		handle_mouse, game);
 	return (0);
 }
 
@@ -60,5 +62,28 @@ int	handle_keys_released(int keycode, t_game *game)
 		game->player.right_direction = false;
 	if (keycode == XK_Shift_L)
 		game->player.shift = false;
+	return (0);
+}
+
+int	handle_mouse(int x, int y, t_game *game)
+{
+	static int	previous_mouse_x = -1;
+	int			delta_x;
+	double 		angle_speed;
+
+	if (previous_mouse_x == -1)
+		previous_mouse_x = x;
+	else
+	{
+		delta_x = x - previous_mouse_x;
+		angle_speed = 0.005;
+		game->player.angle += delta_x * angle_speed;
+		game->player.angle = fmod(game->player.angle, 2 * PI);
+		if (game->player.angle < 0)
+			game->player.angle += 2 * PI;
+		game->player.x_cos = cos(game->player.angle);
+		game->player.y_sin = sin(game->player.angle);
+		previous_mouse_x = x;
+	}
 	return (0);
 }
