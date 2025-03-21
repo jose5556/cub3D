@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 06:42:41 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 07:45:24 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	init_player(t_player *player, t_game *game)
 	player->left_direction = false;
 	player->right_direction = false;
 	player->shift = false;
+	player->interact = false;
 }
 
 static void	init_mlx(t_game *game)

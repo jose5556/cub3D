@@ -6,13 +6,13 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/19 21:22:30 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 07:49:06 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void	calculate_step_sizes(t_player player, t_ray *ray,
+static void	calculate_step_sizes(t_game *game,t_player player, t_ray *ray,
 						int *map_x, int *map_y)
 {
 	ray->delta_dist_x = fabsf(1.0f / ray->dir_x);
@@ -44,8 +44,10 @@ static void	calculate_step_sizes(t_player player, t_ray *ray,
 static int	raycast_loop(t_game *game, t_ray *ray, int *map_x, int *map_y)
 {
 	int		side;
+	int		close_door;
 
 	side = -1;
+	close_door = 1;
 	while (!touch_wall(*map_x, *map_y, game))
 	{
 		if (ray->side_dist_x < ray->side_dist_y)
@@ -74,7 +76,7 @@ static void	ray_caster_dda(t_game *game, float start_x, int pixel)
 	int		side;
 
 	calculate_ray_direction(start_x, &ray);
-	calculate_step_sizes(game->player, &ray, &map_x, &map_y);
+	calculate_step_sizes(game, game->player, &ray, &map_x, &map_y);
 	side = raycast_loop(game, &ray, &map_x, &map_y);
 	game->ray = ray;
 	if (side >= 0)

@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:53:57 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/19 22:54:41 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 07:55:41 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ bool	is_inside_wall(float px, float py, float radius, t_game *game)
 		game->map[(int)(py - radius)][(int)(px + radius)] == '1' ||
 		game->map[(int)(py + radius)][(int)(px - radius)] == '1' ||
 		game->map[(int)(py + radius)][(int)(px + radius)] == '1')
+		return (true);
+	else if (!game->player.interact &&
+		(game->map[(int)(py - radius)][(int)(px - radius)] == '4' ||
+		game->map[(int)(py - radius)][(int)(px + radius)] == '4' ||
+		game->map[(int)(py + radius)][(int)(px - radius)] == '4' ||
+		game->map[(int)(py + radius)][(int)(px + radius)] == '4'))
 		return (true);
 	return (false);
 }

@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 07:06:24 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 07:56:14 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,13 @@ int	handle_keys_press(int keycode, t_game *game)
 		game->player.right_direction = true;
 	if (keycode == XK_Shift_L)
 		game->player.shift = true;
+	if (keycode == E)
+	{
+		if (!(game->player.interact))
+			game->player.interact = true;
+		else
+			game->player.interact = false;
+	}
 	return (0);
 }
 

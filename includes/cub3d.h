@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 07:03:51 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 07:53:26 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define A				97
 # define S				115
 # define D				100
+# define E				101
 
 //COLORS HEXADECIMAL
 # define BLACK			0x000000
@@ -55,6 +56,8 @@
 # define GRAY			0x888888
 # define BLUE			0x00008B
 # define LIGHT_BLUE		0xADD8E6
+# define YELLOW			0xFFB343
+
 //PI
 # define PI 3.141592653589793238462643383279502884197
 
@@ -96,6 +99,7 @@ typedef struct s_player
     bool	key_down;
     bool	key_left;
     bool	key_right;	
+	bool	interact;
 	bool	left_direction;
 	bool	right_direction;
 }	t_player;
