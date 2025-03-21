@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:24:16 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/21 07:30:03 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 09:05:05 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	draw_map(t_game *game)
 		while (map[y][++x])
 		{
 			if (map[y][x] == '1')
-				draw_square(x * SIZE, y * SIZE, WHITE, game);
+				draw_square(x * SIZE, y * SIZE, BROWN, game);
 			else if (map[y][x] == '4')
 				draw_square(x * SIZE, y * SIZE, YELLOW, game);
 			else

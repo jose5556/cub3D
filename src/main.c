@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 07:19:16 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 08:59:26 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,3 +39,6 @@ int	main(void)
 
 // 2-> doors
 // 1-> texture
+
+
+//AT BONUS, WE NEED TO CHECK IF THE DOOR HAS VALID MAP BEHIND
