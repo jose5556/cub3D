@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 22:59:20 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 08:46:04 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	move_player_angle(t_player *player, double angle_speed)
 }
 
 static void	move_up_down(t_game *game, t_player *player,
-		double move_speed, float radius)
+		double move_speed)
 {
 	float	new_x;
 	float	new_y;
@@ -33,24 +33,24 @@ static void	move_up_down(t_game *game, t_player *player,
 	{
 		new_x = player->x + player->x_cos * move_speed;
 		new_y = player->y + player->y_sin * move_speed;
-		if (!is_inside_wall(new_x, player->y, radius, game))
+		if (!is_inside_wall(new_x, player->y, game))
 			player->x = new_x;
-		if (!is_inside_wall(player->x, new_y, radius, game))
+		if (!is_inside_wall(player->x, new_y, game))
 			player->y = new_y;
 	}
 	if (player->key_down)
 	{
 		new_x = player->x - player->x_cos * move_speed;
 		new_y = player->y - player->y_sin * move_speed;
-		if (!is_inside_wall(new_x, player->y, radius, game))
+		if (!is_inside_wall(new_x, player->y, game))
 			player->x = new_x;
-		if (!is_inside_wall(player->x, new_y, radius, game))
+		if (!is_inside_wall(player->x, new_y, game))
 			player->y = new_y;
 	}
 }
 
 static void	move_left_right(t_game *game, t_player *player,
-		double move_speed, float radius)
+		double move_speed)
 {
 	float	new_x;
 	float	new_y;
@@ -59,18 +59,18 @@ static void	move_left_right(t_game *game, t_player *player,
 	{
 		new_x = player->x + player->y_sin * move_speed;
 		new_y = player->y - player->x_cos * move_speed;
-		if (!is_inside_wall(new_x, player->y, radius, game))
+		if (!is_inside_wall(new_x, player->y, game))
 			player->x = new_x;
-		if (!is_inside_wall(player->x, new_y, radius, game))
+		if (!is_inside_wall(player->x, new_y, game))
 			player->y = new_y;
 	}
 	if (player->key_right)
 	{
 		new_x = player->x - player->y_sin * move_speed;
 		new_y = player->y + player->x_cos * move_speed;
-		if (!is_inside_wall(new_x, player->y, radius, game))
+		if (!is_inside_wall(new_x, player->y, game))
 			player->x = new_x;
-		if (!is_inside_wall(player->x, new_y, radius, game))
+		if (!is_inside_wall(player->x, new_y, game))
 			player->y = new_y;
 	}
 }
@@ -78,11 +78,8 @@ static void	move_left_right(t_game *game, t_player *player,
 static void	move_player_position(t_game *game,
 	t_player *player, double move_speed)
 {
-	float	radius;
-
-	radius = 0.2;
-	move_left_right(game, player, move_speed, radius);
-	move_up_down(game, player, move_speed, radius);
+	move_left_right(game, player, move_speed);
+	move_up_down(game, player, move_speed);
 }
 
 void	move_player(t_game *game)
