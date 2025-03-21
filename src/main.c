@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 08:59:26 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 09:17:50 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,12 @@ int	main(void)
 
 // https://lodev.org/cgtutor/raycasting.html
 
-//Stubborn bugs that still make me wanna cry
-
-// 1-> nothing for now
-
 //TODO
 
-// 2-> doors
 // 1-> texture
+// 2-> sprits
+
+
 
 
 //AT BONUS, WE NEED TO CHECK IF THE DOOR HAS VALID MAP BEHIND
