@@ -6,13 +6,13 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:34:55 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 07:32:12 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 08:16:05 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-char **get_map(void)   //temp func
+/* char **get_map(void)   //temp func
 {
     char	**map;
     int     i = -1;
@@ -43,6 +43,27 @@ char **get_map(void)   //temp func
 	map[++i] = "111100000001111";
 	map[++i] = "111110000011111";
 	map[++i] = "111111000111111";
+	map[++i] = "111111111111111";
+    map[++i] = NULL;
+    return (map);
+} */
+
+char **get_map(void)   //temp func
+{
+    char	**map;
+    int     i = -1;
+
+	map = malloc(sizeof(char *) * 13);
+    map[++i] = "111111111111111";
+	map[++i] = "100000000000001";
+	map[++i] = "100000000000001";
+	map[++i] = "100000000000001";
+    map[++i] = "100000000000001";
+    map[++i] = "144444444444441";
+    map[++i] = "100000000000001";
+    map[++i] = "100000000000001";
+    map[++i] = "100000000000001";
+    map[++i] = "10000N000000001";
 	map[++i] = "111111111111111";
     map[++i] = NULL;
     return (map);

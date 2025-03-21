@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 07:53:26 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 08:24:12 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,14 @@
 
 //FPS STABILIZER
 # define FRAME_AVERAGE 60
+
+typedef struct s_door {
+    int x;
+    int y;
+    float transparency; // 0.0f = fully closed, 1.0f = fully open
+    bool is_opening;
+    bool is_closing;
+}	t_door;
 
 typedef struct s_bob
 {
@@ -122,6 +130,7 @@ typedef struct s_game
 	t_player	player;
 	t_ray		ray;
 	t_bob		bob;
+	t_door		door;
 }	t_game;
 
 //init

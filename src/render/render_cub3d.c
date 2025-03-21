@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 22:21:31 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 08:01:33 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	render_cub3d(void *param)
 
 	game = (t_game *)param;
 	//printf("%f\n", get_fps());
+	
 	move_player(game);
 	clear_image(game);
 	paint_floor_ceil(game);
