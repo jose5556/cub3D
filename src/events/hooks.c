@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 07:56:14 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/21 08:54:51 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	handle_keys_press(int keycode, t_game *game)
 	{
 		if (!(game->player.interact))
 			game->player.interact = true;
-		else
+		else if (!is_inside_door(game->player.x, game->player.y, game))
 			game->player.interact = false;
 	}
 	return (0);
