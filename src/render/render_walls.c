@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_walls.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:27:14 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/19 22:58:03 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:24:04 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ static int	wall_direction(t_ray ray, int side)
 void	bob_builder(t_game *game, int side, int pixel_x, float start_x)
 {
 	float	correct_angle;
-	int		color;
 	t_ray	ray;
 	t_bob	bob;
 	float	aspect_ratio;
@@ -46,11 +45,9 @@ void	bob_builder(t_game *game, int side, int pixel_x, float start_x)
 	bob = game->bob;
 	correct_angle = cosf(game->player.angle - start_x);
 	if (side)
-		bob.perp_wall_dist = (ray.side_dist_y - ray.delta_dist_y)
-			* correct_angle;
+		bob.perp_wall_dist = (ray.side_dist_y - ray.delta_dist_y) * correct_angle;
 	else
-		bob.perp_wall_dist = (ray.side_dist_x - ray.delta_dist_x)
-			* correct_angle;
+		bob.perp_wall_dist = (ray.side_dist_x - ray.delta_dist_x) * correct_angle;
 	bob.line_height = (int)(HEIGHT / (bob.perp_wall_dist) * aspect_ratio);
 	bob.draw_start = HEIGHT / 2 - bob.line_height / 2;
 	if (bob.draw_start < 0)
@@ -58,6 +55,5 @@ void	bob_builder(t_game *game, int side, int pixel_x, float start_x)
 	bob.draw_end = HEIGHT / 2 + bob.line_height / 2;
 	if (bob.draw_end > HEIGHT - 1)
 		bob.draw_end = HEIGHT - 1;
-	color = wall_direction(ray, side);
-	paint_walls(game, &bob, color, pixel_x);
+	paint_walls(game, &bob, pixel_x, side);
 }

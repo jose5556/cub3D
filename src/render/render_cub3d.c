@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_cub3d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 08:50:43 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:27:07 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	render_cub3d(void *param)
 	float	start_x;
 
 	game = (t_game *)param;
-	//printf("%f\n", get_fps());
 	move_player(game);
 	clear_image(game);
 	paint_floor_ceil(game);

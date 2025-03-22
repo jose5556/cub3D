@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 08:54:42 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:20:14 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@
 # include <sys/time.h>
 
 //SCREEN / PLAYER SIZE
-# define HEIGHT			1080
-# define WIDTH			1980
+//# define HEIGHT			1080
+# define HEIGHT			720
+//# define WIDTH			1980
+# define WIDTH			1280
 # define SIZE			10
 # define RADIUS			4
 
@@ -96,13 +98,24 @@ typedef struct s_player
 	float	angle;
 	bool	shift;
 	bool	key_up;
-    bool	key_down;
-    bool	key_left;
-    bool	key_right;	
+	bool	key_down;
+	bool	key_left;
+	bool	key_right;	
 	bool	interact;
 	bool	left_direction;
 	bool	right_direction;
 }	t_player;
+
+typedef struct s_texture
+{
+	void	*img;
+	char	*addr;
+	int		width;
+	int		height;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_texture;
 
 typedef struct s_img
 {
@@ -119,6 +132,7 @@ typedef struct s_game
 	void		*win;
 	char		**map;   //temp
 	t_img		img;
+	t_texture	textures[4];
 	t_player	player;
 	t_ray		ray;
 	t_bob		bob;

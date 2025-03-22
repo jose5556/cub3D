@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_movement.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 08:46:04 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:31:34 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	move_player(t_game *game)
 	angle_speed = 0.7;
 	if (game->player.shift)
 	{
-		angle_speed *= 2;
+		angle_speed *= 3;
 		move_speed *= 3;
 	}
 	move_player_angle(&game->player, angle_speed);

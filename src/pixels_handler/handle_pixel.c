@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_pixel.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:21:19 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/19 19:49:07 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:37:53 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,39 @@ void	clear_image(t_game *game)
 	}
 }
 
-void	paint_walls(t_game *game, t_bob *bob, int wall_color, int pixel_x)
+void	paint_walls(t_game *game, t_bob *bob, int pixel_x, int side)
 {
-	int	y;
+	int		y;
+	int		tex_x;
+	int		tex_y;
+	int		color;
+	float	tex_pos;
+	float	step;
+	t_texture *texture;
 
+	// Choose texture based on wall direction
+	if (side == 0)
+		texture = &game->textures[game->ray.h_direction > 0 ? 0 : 1];
+	else
+		texture = &game->textures[game->ray.v_direction > 0 ? 2 : 3];
+
+	// Calculate texture x-coordinate
+	tex_x = (int)(game->ray.x * texture->width / SIZE) % texture->width;
+	if (side == 0)
+		tex_x = (int)(game->ray.y * texture->width / SIZE) % texture->width;
+
+	// Calculate step and initial texture position
+	step = 1.0 * texture->height / bob->line_height;
+	tex_pos = (bob->draw_start - HEIGHT / 2 + bob->line_height / 2) * step;
+
+	// Draw the wall slice
 	y = bob->draw_start;
-	while (y <= bob->draw_end)
+	while (y < bob->draw_end)
 	{
-		my_mlx_pixel_put(&game->img, pixel_x, y, wall_color);
+		tex_y = (int)tex_pos & (texture->height - 1);
+		tex_pos += step;
+		color = *(int *)(texture->addr + (tex_y * texture->line_length + tex_x * (texture->bits_per_pixel / 8)));
+		my_mlx_pixel_put(&game->img, pixel_x, y, color);
 		y++;
 	}
 }

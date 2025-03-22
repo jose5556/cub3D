@@ -3,19 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 08:47:26 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/22 02:37:25 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-/* static void	init_map(t_coisa coisa) TODO MAYBE?
+static void	init_textures(t_game *game)
 {
-	
-} */
+	int	i;
+
+	i = -1;
+	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/blue_stone.xpm",
+		&game->textures[0].width, &game->textures[0].height);
+	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/color_stone.xpm",
+		&game->textures[1].width, &game->textures[1].height);
+	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/mossy.xpm",
+		&game->textures[2].width, &game->textures[2].height);
+	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/wood.xpm",
+		&game->textures[3].width, &game->textures[3].height);
+
+	while (++i < 4)
+	{
+		if (!game->textures[i].img)
+			mlx_exit_error("Failed to load texture", game, 1);
+		game->textures[i].addr = mlx_get_data_addr(game->textures[i].img,
+			&game->textures[i].bits_per_pixel, &game->textures[i].line_length,
+			&game->textures[i].endian);
+	}
+}
 
 static void	init_player(t_player *player, t_game *game)
 {
@@ -54,4 +73,5 @@ void	init(t_game *game)
 	init_mlx(game);
 	game->map = get_map();
 	init_player(&game->player, game);
+	init_textures(game);
 }
