@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/22 02:20:14 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/22 03:10:54 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define WIDTH			1280
 # define SIZE			10
 # define RADIUS			4
+# define mapWidth		24
+# define mapHeight		24
 
 //ERROR MESSAGES
 # define STANDART_ERROR		"Error\n"
