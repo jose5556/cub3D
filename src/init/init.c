@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/22 02:37:25 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/22 07:41:55 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	init_textures(t_game *game)
 	int	i;
 
 	i = -1;
-	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/blue_stone.xpm",
+	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/west.xpm",
 		&game->textures[0].width, &game->textures[0].height);
-	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/color_stone.xpm",
+	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/east.xpm",
 		&game->textures[1].width, &game->textures[1].height);
-	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/mossy.xpm",
+	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/north.xpm",
 		&game->textures[2].width, &game->textures[2].height);
-	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/wood.xpm",
+	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/south.xpm",
 		&game->textures[3].width, &game->textures[3].height);
 
 	while (++i < 4)

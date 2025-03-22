@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:21:19 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/22 02:37:53 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/22 07:41:09 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,34 @@ void	paint_walls(t_game *game, t_bob *bob, int pixel_x, int side)
 	int		tex_x;
 	int		tex_y;
 	int		color;
-	float	tex_pos;
-	float	step;
+	double	tex_pos;
+	double	step;
+	double	wall_x;
 	t_texture *texture;
 
-	// Choose texture based on wall direction
+	// Determine which texture to use based on wall side and direction
 	if (side == 0)
-		texture = &game->textures[game->ray.h_direction > 0 ? 0 : 1];
+		texture = &game->textures[game->ray.step_x > 0 ? 0 : 1];
 	else
-		texture = &game->textures[game->ray.v_direction > 0 ? 2 : 3];
+		texture = &game->textures[game->ray.step_y > 0 ? 2 : 3];
 
-	// Calculate texture x-coordinate
-	tex_x = (int)(game->ray.x * texture->width / SIZE) % texture->width;
+	// Calculate exact wall hit position
 	if (side == 0)
-		tex_x = (int)(game->ray.y * texture->width / SIZE) % texture->width;
+		wall_x = game->player.y + bob->perp_wall_dist * game->ray.dir_y;
+	else
+		wall_x = game->player.x + bob->perp_wall_dist * game->ray.dir_x;
+	wall_x -= floor(wall_x);
 
-	// Calculate step and initial texture position
+	// Calculate texture X coordinate
+	tex_x = (int)(wall_x * (double)texture->width);
+	if ((side == 0 && game->ray.dir_x > 0) || (side == 1 && game->ray.dir_y < 0))
+		tex_x = texture->width - tex_x - 1;
+
+	// Calculate step and starting texture position
 	step = 1.0 * texture->height / bob->line_height;
 	tex_pos = (bob->draw_start - HEIGHT / 2 + bob->line_height / 2) * step;
 
-	// Draw the wall slice
+	// Draw the vertical stripe of the wall
 	y = bob->draw_start;
 	while (y < bob->draw_end)
 	{

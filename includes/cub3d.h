@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/22 03:10:54 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/22 05:52:54 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@
 
 typedef struct s_bob
 {
-	float	perp_wall_dist;
+	double	perp_wall_dist;
 	int		line_height;
 	int		draw_start;
 	int		draw_end;
@@ -78,26 +78,26 @@ typedef struct s_bob
 
 typedef struct s_raycaster
 {
-	float	x;
-	float	y;
-	float	delta_dist_x;
-	float	delta_dist_y;
-	float	side_dist_x;
-	float	side_dist_y;
-	int		h_direction;
-	int		v_direction;
-	float	dir_x;
-	float	dir_y;
+	double	x;
+	double	y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int		step_x;
+	int		step_y;
+	double	dir_x;
+	double	dir_y;
 }	t_ray;
 
 
 typedef struct s_player
 {
-	float	x;
-	float	y;
-	float	x_cos;
-	float	y_sin;
-	float	angle;
+	double	x;
+	double	y;
+	double	x_cos;
+	double	y_sin;
+	double	angle;
 	bool	shift;
 	bool	key_up;
 	bool	key_down;
@@ -146,8 +146,8 @@ void	init(t_game *game);
 //render
 int		render_cub3d(void *param);
 void	draw_player(int size, int color, t_game *game);
-void	render_raycaster(t_game *game, float start_x, float fraction);
-void	bob_builder(t_game *game, int side, int pixel_x, float start_x);
+void	render_raycaster(t_game *game, double start_x, double fraction);
+void	bob_builder(t_game *game, int side, int pixel_x, double start_x);
 
 //events
 int		hooks_listener(t_game *game);
@@ -161,7 +161,7 @@ int		simple_exit_error(char *error_message);
 void	mlx_exit_error(char *error_message, t_game *game, int error);
 
 //player
-float	get_player_angle(t_game *game);
+double	get_player_angle(t_game *game);
 void	move_player(t_game *game);
 int		get_player_x(t_game *game);
 int		get_player_y(t_game *game);
@@ -178,12 +178,12 @@ void	draw_map(t_game *game);
 void	paint_floor_ceil(t_game *game);
 
 //utils
-bool	touch_wall(float px, float py, t_game *game);
-bool	is_inside_wall(float px, float py, t_game *game);
-bool	is_inside_door(float px, float py, t_game *game);
-void	set_ray_parameters(t_game *game, float *fraction, float *start_x);
-void	calculate_ray_direction(float start_x, t_ray *ray);
-double	degree_to_radians(float a);
+bool	touch_wall(double px, double py, t_game *game);
+bool	is_inside_wall(double px, double py, t_game *game);
+bool	is_inside_door(double px, double py, t_game *game);
+void	set_ray_parameters(t_game *game, double *fraction, double *start_x);
+void	calculate_ray_direction(double start_x, t_ray *ray);
+double	degree_to_radians(double a);
 double	get_fps(void);
 
 #endif

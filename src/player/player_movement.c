@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 20:43:56 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/22 02:31:34 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/22 05:50:31 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static void	move_player_angle(t_player *player, double angle_speed)
 static void	move_up_down(t_game *game, t_player *player,
 		double move_speed)
 {
-	float	new_x;
-	float	new_y;
+	double	new_x;
+	double	new_y;
 
 	if (player->key_up)
 	{
@@ -52,8 +52,8 @@ static void	move_up_down(t_game *game, t_player *player,
 static void	move_left_right(t_game *game, t_player *player,
 		double move_speed)
 {
-	float	new_x;
-	float	new_y;
+	double	new_x;
+	double	new_y;
 
 	if (player->key_left)
 	{
@@ -86,7 +86,7 @@ void	move_player(t_game *game)
 {
 	double	move_speed;
 	double	angle_speed;
-	float	fps;
+	double	fps;
 
 	fps = get_fps();
 	move_speed = 0.03 * (60.0 / fps);

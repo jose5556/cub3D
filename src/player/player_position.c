@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_position.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 19:39:45 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/19 22:22:55 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/22 05:50:32 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static char	get_player_chr(t_game *game)
 	return (0);
 }
 
-float	get_player_angle(t_game *game)
+double	get_player_angle(t_game *game)
 {
 	char	player;
 

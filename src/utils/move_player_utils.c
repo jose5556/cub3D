@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   move_player_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:53:57 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/21 08:54:22 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/22 05:50:32 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-bool	is_inside_wall(float px, float py, t_game *game)
+bool	is_inside_wall(double px, double py, t_game *game)
 {
-	float	radius;
+	double	radius;
 
 	radius = 0.2;
 	if (px < 0 || px >= WIDTH || py < 0 || py >= HEIGHT)
@@ -33,9 +33,9 @@ bool	is_inside_wall(float px, float py, t_game *game)
 	return (false);
 }
 
-bool	is_inside_door(float px, float py, t_game *game)
+bool	is_inside_door(double px, double py, t_game *game)
 {
-	float	radius;
+	double	radius;
 
 	radius = 0.2;
 	if (px < 0 || px >= WIDTH || py < 0 || py >= HEIGHT)

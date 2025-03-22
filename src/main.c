@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/22 01:59:25 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/22 07:44:08 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 
 //TODO
 
-// 1-> texture
+// 1-> texture are upside down
 // 2-> sprits
 
 

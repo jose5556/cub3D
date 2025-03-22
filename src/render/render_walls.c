@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:27:14 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/22 02:24:04 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/22 06:08:43 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ static int	wall_direction(t_ray ray, int side)
 
 	if (!side)
 	{
-		if (ray.h_direction > 0)
+		if (ray.step_x > 0)
 			color = RED;
 		else
 			color = PINK;
 	}
 	else
 	{
-		if (ray.v_direction > 0)
+		if (ray.step_y > 0)
 			color = PURPLE;
 		else
 			color = BROWN;
@@ -33,14 +33,14 @@ static int	wall_direction(t_ray ray, int side)
 	return (color);
 }
 
-void	bob_builder(t_game *game, int side, int pixel_x, float start_x)
+void	bob_builder(t_game *game, int side, int pixel_x, double start_x)
 {
-	float	correct_angle;
+	double	correct_angle;
 	t_ray	ray;
 	t_bob	bob;
-	float	aspect_ratio;
+	double	aspect_ratio;
 
-	aspect_ratio = (float)WIDTH / HEIGHT;
+	aspect_ratio = (double)WIDTH / HEIGHT;
 	ray = game->ray;
 	bob = game->bob;
 	correct_angle = cosf(game->player.angle - start_x);
