@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_player_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:53:57 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/22 05:50:32 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/23 06:04:16 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ bool	is_inside_door(double px, double py, t_game *game)
 			game->map[(int)(py + radius)][(int)(px - radius)] == '4' ||
 			game->map[(int)(py + radius)][(int)(px + radius)] == '4')
 			return (true);
+	return (false);
 }
