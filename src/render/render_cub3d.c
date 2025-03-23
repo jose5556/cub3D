@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_cub3d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/22 05:50:31 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/23 06:50:59 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	render_cub3d(void *param)
 	paint_floor_ceil(game);
 	set_ray_parameters(game, &fraction, &start_x);
 	render_raycaster(game, start_x, fraction);
-	draw_map(game);  //minimap?
+	draw_map(game);
 	draw_player(SIZE / 4, GREEN, game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img, 0, 0);
 	return (0);

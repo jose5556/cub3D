@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycaster.utils.c                                  :+:      :+:    :+:   */
+/*   raycaster_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:56:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/22 05:50:32 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/23 06:53:32 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ bool	touch_wall(double px, double py, t_game *game)
 {
 	if (px < 0 || px >= WIDTH || py < 0 || py >= HEIGHT)
 		return (true);
-
 	if (!(game->player.interact))
 	{
 		if (game->map[(int)py][(int)px] == '1'
@@ -43,7 +42,7 @@ bool	touch_wall(double px, double py, t_game *game)
 	else
 	{
 		if (game->map[(int)py][(int)px] == '1')
-		return (true);
+			return (true);
 	}
 	return (false);
 }

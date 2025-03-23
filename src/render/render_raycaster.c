@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/23 06:14:55 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/23 06:51:22 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ static void	bob_builder(t_game *game, int side, int pixel_x, double start_x)
 	bob = game->bob;
 	correct_angle = cosf(game->player.angle - start_x);
 	if (side)
-		bob.perp_wall_dist = (ray.side_dist_y - ray.delta_dist_y) * correct_angle;
+		bob.perp_wall_dist = (ray.side_dist_y - ray.delta_dist_y)
+			* correct_angle;
 	else
-		bob.perp_wall_dist = (ray.side_dist_x - ray.delta_dist_x) * correct_angle;
+		bob.perp_wall_dist = (ray.side_dist_x - ray.delta_dist_x)
+			* correct_angle;
 	bob.line_height = (int)(HEIGHT / (bob.perp_wall_dist) * aspect_ratio);
 	bob.draw_start = HEIGHT / 2 - bob.line_height / 2;
 	if (bob.draw_start < 0)

@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 22:53:57 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/23 06:04:16 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/23 06:54:29 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ bool	is_inside_wall(double px, double py, t_game *game)
 	radius = 0.2;
 	if (px < 0 || px >= WIDTH || py < 0 || py >= HEIGHT)
 		return (true);
-	if (!game->player.interact &&
-			(game->map[(int)(py - radius)][(int)(px - radius)] == '4' ||
-			game->map[(int)(py - radius)][(int)(px + radius)] == '4' ||
-			game->map[(int)(py + radius)][(int)(px - radius)] == '4' ||
-			game->map[(int)(py + radius)][(int)(px + radius)] == '4'))
-			return (true);
+	if (!game->player.interact
+		&& (game->map[(int)(py - radius)][(int)(px - radius)] == '4' ||
+		game->map[(int)(py - radius)][(int)(px + radius)] == '4' ||
+		game->map[(int)(py + radius)][(int)(px - radius)] == '4' ||
+		game->map[(int)(py + radius)][(int)(px + radius)] == '4'))
+		return (true);
 	else if (game->map[(int)(py - radius)][(int)(px - radius)] == '1' ||
 		game->map[(int)(py - radius)][(int)(px + radius)] == '1' ||
 		game->map[(int)(py + radius)][(int)(px - radius)] == '1' ||
@@ -44,6 +44,6 @@ bool	is_inside_door(double px, double py, t_game *game)
 			game->map[(int)(py - radius)][(int)(px + radius)] == '4' ||
 			game->map[(int)(py + radius)][(int)(px - radius)] == '4' ||
 			game->map[(int)(py + radius)][(int)(px + radius)] == '4')
-			return (true);
+		return (true);
 	return (false);
 }
