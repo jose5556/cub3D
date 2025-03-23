@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 07:16:10 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/23 07:29:13 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,5 +181,6 @@ void	set_ray_parameters(t_game *game, double *fraction, double *start_x);
 void	calculate_ray_direction(double start_x, t_ray *ray);
 double	degree_to_radians(double a);
 double	get_fps(void);
+void	free_textures(t_game *game, int max);
 
 #endif

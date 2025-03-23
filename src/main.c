@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 05:55:19 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/23 07:20:29 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(void)
 	ft_bzero(&game.img, sizeof(t_img));
 	//map_validation();  TODO
 	init(&game);
-	mlx_mouse_hide(game.mlx, game.win);
 	render_cub3d(&game);
 	hooks_listener(&game);
 	mlx_loop_hook(game.mlx, render_cub3d, &game);
