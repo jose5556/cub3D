@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 07:12:23 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/23 07:16:10 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@
 # define WIDTH			1280
 # define SIZE			10
 # define RADIUS			4
-# define mapWidth		24
-# define mapHeight		24
 
 //ERROR MESSAGES
 # define STANDART_ERROR		"Error\n"
@@ -90,7 +88,6 @@ typedef struct s_raycaster
 	double	dir_y;
 }	t_ray;
 
-
 typedef struct s_player
 {
 	double	x;
@@ -132,7 +129,7 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
-	char		**map;   //temp
+	char		**map;
 	t_img		img;
 	t_texture	textures[4];
 	t_player	player;
