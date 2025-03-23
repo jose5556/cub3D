@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 06:53:04 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/23 07:08:14 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	handle_keys_released(int keycode, t_game *game)
 int	handle_mouse(int x, t_game *game)
 {
 	static int	previous_mouse_x = -1;
-	double		angle_speed;
+	double 		angle_speed;
 	int			delta_x;
 
 	if (previous_mouse_x == -1)
