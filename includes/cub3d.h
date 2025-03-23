@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/22 05:52:54 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/23 06:23:35 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,15 +145,13 @@ void	init(t_game *game);
 
 //render
 int		render_cub3d(void *param);
-void	draw_player(int size, int color, t_game *game);
 void	render_raycaster(t_game *game, double start_x, double fraction);
-void	bob_builder(t_game *game, int side, int pixel_x, double start_x);
 
 //events
 int		hooks_listener(t_game *game);
 int		handle_keys_press(int keycode, t_game *game);
 int		handle_keys_released(int keycode, t_game *game);
-int		handle_mouse(int t, int x, t_game *game);
+int		handle_mouse(int x, t_game *game);
 
 //exit
 int		close_program_hook(t_game *game);
@@ -175,6 +173,7 @@ void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
 void	draw_player(int size, int color, t_game *game);
 void	clear_image(t_game *game);
 void	draw_map(t_game *game);
+void	draw_player(int size, int color, t_game *game);
 void	paint_floor_ceil(t_game *game);
 
 //utils

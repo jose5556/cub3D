@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/21 08:54:51 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/23 06:01:07 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	handle_keys_released(int keycode, t_game *game)
 	return (0);
 }
 
-int	handle_mouse(int x, int y, t_game *game)
+int	handle_mouse(int x, t_game *game)
 {
 	static int	previous_mouse_x = -1;
 	int			delta_x;
