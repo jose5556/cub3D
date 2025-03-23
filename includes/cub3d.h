@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 06:23:35 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/23 07:12:23 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ void	render_raycaster(t_game *game, double start_x, double fraction);
 int		hooks_listener(t_game *game);
 int		handle_keys_press(int keycode, t_game *game);
 int		handle_keys_released(int keycode, t_game *game);
-int		handle_mouse(int x, t_game *game);
+int		handle_mouse(int x, int y, t_game *game);
 
 //exit
 int		close_program_hook(t_game *game);
