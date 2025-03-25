@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/25 04:56:47 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/25 05:05:25 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	init_textures(t_game *game)
 		&game->textures[0].width, &game->textures[0].height);
 	if (!(game->textures[0].img))
 		simple_exit_error("Failed to load texture");
-	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/eastt.xpm",			//west
+	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/east.xpm",			//west
 		&game->textures[1].width, &game->textures[1].height);
 	if (!(game->textures[1].img))
 		texture_exit_error(1, game);
