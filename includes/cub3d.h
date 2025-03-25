@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 07:29:13 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/25 03:02:51 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,13 @@
 
 //FPS STABILIZER
 # define FRAME_AVERAGE 60
+
+typedef struct s_sprite
+{
+	float	y;
+	float	x;
+	double ZBuffer[WIDTH];
+}	t_sprite;
 
 typedef struct s_bob
 {
@@ -135,6 +142,7 @@ typedef struct s_game
 	t_player	player;
 	t_ray		ray;
 	t_bob		bob;
+	t_sprite	sprite;
 }	t_game;
 
 //init

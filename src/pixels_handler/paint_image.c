@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paint_image.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:21:19 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/23 06:36:28 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/25 02:42:10 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	paint_floor_ceil(t_game *game)
 		while (++i < WIDTH)
 			my_mlx_pixel_put(&game->img, i, y, GRAY);
 	}
-	while (++y < HEIGHT)
+	while (++y < HEIGHT - 1)
 	{
 		i = -1;
 		while (++i < WIDTH)

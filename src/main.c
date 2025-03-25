@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 07:20:29 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/25 02:27:56 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(void)
 	/* if (argc != 2)
 		return (simple_exit_error(ARGUMENTS_ERROR)); */
 	ft_bzero(&game, sizeof(t_game));
-	ft_bzero(&game.img, sizeof(t_img));
 	//map_validation();  TODO
 	init(&game);
 	render_cub3d(&game);
@@ -32,9 +31,8 @@ int	main(void)
 
 //TODO
 
-
-// 1-> sprits
-
+//	1-> sprits
+//	2-> handle properly the exit if texture is not valid
 
 
 //AT BONUS, WE NEED TO CHECK IF THE DOOR HAS VALID MAP BEHIND
