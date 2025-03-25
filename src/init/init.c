@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 07:26:47 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/25 01:41:03 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	init_textures(t_game *game)
 	int	i;
 
 	i = -1;
-	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/blue_stone.xpm",
+	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/west.xpm",	//east
 		&game->textures[0].width, &game->textures[0].height);
-	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/color_stone.xpm",
+	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/east.xpm",	//west
 		&game->textures[1].width, &game->textures[1].height);
-	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/grey_stone.xpm",
+	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/north.xpm",  //south
 		&game->textures[2].width, &game->textures[2].height);
-	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/purple_stone.xpm",
+	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/south.xpm",	//north
 		&game->textures[3].width, &game->textures[3].height);
 
 	while (++i < 4)
