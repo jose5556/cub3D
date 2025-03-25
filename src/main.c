@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/25 02:27:56 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/25 04:36:18 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	t_game	game;
 
 	/* if (argc != 2)
-		return (simple_exit_error(ARGUMENTS_ERROR)); */
+		simple_exit_error(ARGUMENTS_ERROR); */
 	ft_bzero(&game, sizeof(t_game));
 	//map_validation();  TODO
 	init(&game);
@@ -31,8 +31,7 @@ int	main(void)
 
 //TODO
 
-//	1-> sprits
-//	2-> handle properly the exit if texture is not valid
+//	1-> handle properly the exit if texture is not valid
 
 
 //AT BONUS, WE NEED TO CHECK IF THE DOOR HAS VALID MAP BEHIND

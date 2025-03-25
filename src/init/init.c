@@ -6,17 +6,11 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/25 03:01:51 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/25 04:56:47 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-static void	init_sprite(t_sprite *sprite)
-{
-	sprite->x = 3;
-	sprite->y = 3;
-}
 
 static void	init_textures(t_game *game)
 {
@@ -25,17 +19,22 @@ static void	init_textures(t_game *game)
 	i = -1;
 	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/west.xpm",			//east
 		&game->textures[0].width, &game->textures[0].height);
-	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/east.xpm",			//west
+	if (!(game->textures[0].img))
+		simple_exit_error("Failed to load texture");
+	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/eastt.xpm",			//west
 		&game->textures[1].width, &game->textures[1].height);
+	if (!(game->textures[1].img))
+		texture_exit_error(1, game);
 	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/north.xpm",  		//south
 		&game->textures[2].width, &game->textures[2].height);
+	if (!(game->textures[2].img))
+		texture_exit_error(2, game);
 	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/south.xpm",			//north
 		&game->textures[3].width, &game->textures[3].height);
-
+	if (!(game->textures[3].img))
+		texture_exit_error(3, game);
 	while (++i < 4)
 	{
-		if (!game->textures[i].img)
-			mlx_exit_error("Failed to load texture", game, 3);
 		game->textures[i].addr = mlx_get_data_addr(game->textures[i].img,
 			&game->textures[i].bits_per_pixel, &game->textures[i].line_length,
 			&game->textures[i].endian);
@@ -77,8 +76,7 @@ static void	init_mlx(t_game *game)
 void	init(t_game *game)
 {
 	init_mlx(game);
+	init_textures(game);
 	game->map = get_map();
 	init_player(&game->player, game);
-	init_textures(game);
-	init_sprite(&game->sprite);
 }

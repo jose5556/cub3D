@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cereais <cereais@student.42.fr>            +#+  +:+       +#+         #
+#    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/01 12:50:37 by joseoliv          #+#    #+#              #
-#    Updated: 2025/03/23 07:25:58 by cereais          ###   ########.fr        #
+#    Updated: 2025/03/25 04:31:57 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ MINILIBX 	= $(MINILIBX_DIR)/libmlx.a
 LIBFT_DIR	= libs/libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-CFLAGS		= -Wextra -Wall -Werror  
+#CFLAGS		= -Wextra -Wall -Werror  
 LDFLAGS 	= $(LIBFT) $(MINILIBX) -lX11 -lXext -lm
 
 OBJS_PATH	=	./objects/

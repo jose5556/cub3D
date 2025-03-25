@@ -6,30 +6,13 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:34:55 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/25 03:05:04 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/25 04:54:16 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-char	**get_map(void)
-{
-	char	**map;
-	int		i;
-
-	i = -1;
-	map = malloc(sizeof(char *) * 8);
-	map[++i] = "111111111111111";
-	map[++i] = "1S0000000000001";
-	map[++i] = "100000000000001";
-	map[++i] = "100000000000001";
-	map[++i] = "100000000000001";
-	map[++i] = "111111111111111";
-	map[++i] = NULL;
-	return (map);
-}
-
-/* char **get_map(void)   //temp func
+char **get_map(void)   //temp func
 {
 	char	**map;
 	int     i = -1;
@@ -60,6 +43,24 @@ char	**get_map(void)
 	map[++i] = "111100000001111";
 	map[++i] = "111110000011111";
 	map[++i] = "111111000111111";
+	map[++i] = "111111111111111";
+	map[++i] = NULL;
+	return (map);
+}
+
+
+/* char	**get_map(void)
+{
+	char	**map;
+	int		i;
+
+	i = -1;
+	map = malloc(sizeof(char *) * 8);
+	map[++i] = "111111111111111";
+	map[++i] = "1S0000000000001";
+	map[++i] = "100000000000001";
+	map[++i] = "100000000000001";
+	map[++i] = "100000000000001";
 	map[++i] = "111111111111111";
 	map[++i] = NULL;
 	return (map);

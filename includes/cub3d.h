@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/25 03:02:51 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/25 04:41:02 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,6 @@
 
 //FPS STABILIZER
 # define FRAME_AVERAGE 60
-
-typedef struct s_sprite
-{
-	float	y;
-	float	x;
-	double ZBuffer[WIDTH];
-}	t_sprite;
 
 typedef struct s_bob
 {
@@ -142,7 +135,6 @@ typedef struct s_game
 	t_player	player;
 	t_ray		ray;
 	t_bob		bob;
-	t_sprite	sprite;
 }	t_game;
 
 //init
@@ -162,6 +154,7 @@ int		handle_mouse(int x, int y, t_game *game);
 int		close_program_hook(t_game *game);
 int		simple_exit_error(char *error_message);
 void	mlx_exit_error(char *error_message, t_game *game, int error);
+void	texture_exit_error(int i, t_game *game);
 
 //player
 double	get_player_angle(t_game *game);
