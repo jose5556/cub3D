@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 04:48:27 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/27 08:01:16 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,16 @@ int	main(void)
 		simple_exit_error(ARGUMENTS_ERROR); */
 	ft_bzero(&game, sizeof(t_game));
 	//map_validation();  TODO
-	ft_printf("%d\n", BONUS);
+	if (BONUS == 1)
+	{
+		game.bonus = 1;
+		ft_printf("in main, bonus is -> %d\n", game.bonus);
+	}
+	else
+	{
+		game.bonus = 0;
+		ft_printf("in main, bonus is -> %d\n", game.bonus);
+	}
 	init(&game);
 	render_cub3d(&game);
 	hooks_listener(&game);
@@ -32,7 +41,7 @@ int	main(void)
 
 //TODO
 
-//	1-> handle properly the exit if texture is not valid
+//
 
 
 //AT BONUS, WE NEED TO CHECK IF THE DOOR HAS VALID MAP BEHIND

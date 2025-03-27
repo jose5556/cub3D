@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 04:48:00 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/27 07:56:32 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,10 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	char		**map;
+	int			is_door;
+	bool		bonus;
 	t_img		img;
-	t_texture	textures[4];
+	t_texture	textures[5];
 	t_player	player;
 	t_ray		ray;
 	t_bob		bob;

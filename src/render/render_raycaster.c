@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_raycaster.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:27:32 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/25 03:04:34 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/27 07:27:37 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,13 @@ static int	raycast_loop(t_game *game, t_ray *ray, int *map_x, int *map_y)
 
 static void	ray_caster_dda(t_game *game, double start_x, int pixel)
 {
-	t_ray	ray;
 	int		map_x;
 	int		map_y;
 	int		side;
 
-	calculate_ray_direction(start_x, &ray);
-	calculate_step_sizes(game->player, &ray, &map_x, &map_y);
-	side = raycast_loop(game, &ray, &map_x, &map_y);
-	game->ray = ray;
+	calculate_ray_direction(start_x, &game->ray);
+	calculate_step_sizes(game->player, &game->ray, &map_x, &map_y);
+	side = raycast_loop(game, &game->ray, &map_x, &map_y);
 	if (side >= 0)
 		bob_builder(game, side, pixel, start_x);
 }

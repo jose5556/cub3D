@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/23 07:13:55 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/27 06:28:58 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	handle_keys_press(int keycode, t_game *game)
 		game->player.right_direction = true;
 	if (keycode == XK_Shift_L)
 		game->player.shift = true;
-	if (keycode == E)
+	if (BONUS && keycode == E)
 	{
 		if (!(game->player.interact))
 			game->player.interact = true;
@@ -79,19 +79,22 @@ int	handle_mouse(int x, int y, t_game *game)
 	int			delta_x;
 
 	(void)y;
-	if (previous_mouse_x == -1)
-		previous_mouse_x = x;
-	else
+	if (BONUS)
 	{
-		delta_x = x - previous_mouse_x;
-		angle_speed = 0.005;
-		game->player.angle += delta_x * angle_speed;
-		game->player.angle = fmod(game->player.angle, 2 * PI);
-		if (game->player.angle < 0)
-			game->player.angle += 2 * PI;
-		game->player.x_cos = cos(game->player.angle);
-		game->player.y_sin = sin(game->player.angle);
-		previous_mouse_x = x;
+		if (previous_mouse_x == -1)
+			previous_mouse_x = x;
+		else
+		{
+			delta_x = x - previous_mouse_x;
+			angle_speed = 0.005;
+			game->player.angle += delta_x * angle_speed;
+			game->player.angle = fmod(game->player.angle, 2 * PI);
+			if (game->player.angle < 0)
+				game->player.angle += 2 * PI;
+			game->player.x_cos = cos(game->player.angle);
+			game->player.y_sin = sin(game->player.angle);
+			previous_mouse_x = x;
+		}
 	}
 	return (0);
 }

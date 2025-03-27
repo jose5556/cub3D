@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture_painter.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 06:36:00 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/25 01:38:17 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/27 07:57:04 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static t_texture	*select_texture(t_game *game, int side)
 {
+	if (game->is_door)
+		return (&game->textures[4]);
 	if (side == 0)
 	{
 		if (game->ray.step_x > 0)
@@ -48,7 +50,6 @@ static int	calculate_tex_x(t_texture *texture, double wall_x, int side, t_game *
 	}
 	return tex_x;
 }
-
 
 static void	draw_texture_column(t_game *game, t_texture *texture,
 		int pixel_x, int tex_x)
@@ -85,4 +86,5 @@ void	paint_walls(t_game *game, t_bob *bob, int pixel_x, int side)
 	wall_x = calculate_wall_x(game, bob, side);
 	tex_x = calculate_tex_x(texture, wall_x, side, game);
 	draw_texture_column(game, texture, pixel_x, tex_x);
+	game->is_door = 0;
 }
