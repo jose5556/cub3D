@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 02:56:34 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 07:32:54 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/27 08:02:26 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool	touch_wall(double px, double py, t_game *game)
 		if (game->map[(int)py][(int)px] == '1'
 			|| game->map[(int)py][(int)px] == '4')
 		{
-			if (game->map[(int)py][(int)px] == '4' && BONUS)
+			if (game->map[(int)py][(int)px] == '4' && game->bonus)
 				game->is_door = 1;
 			return (true);
 		}

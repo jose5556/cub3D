@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 06:28:58 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/27 08:02:53 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	handle_keys_press(int keycode, t_game *game)
 		game->player.right_direction = true;
 	if (keycode == XK_Shift_L)
 		game->player.shift = true;
-	if (BONUS && keycode == E)
+	if (game->bonus && keycode == E)
 	{
 		if (!(game->player.interact))
 			game->player.interact = true;
@@ -79,7 +79,7 @@ int	handle_mouse(int x, int y, t_game *game)
 	int			delta_x;
 
 	(void)y;
-	if (BONUS)
+	if (game->bonus)
 	{
 		if (previous_mouse_x == -1)
 			previous_mouse_x = x;
