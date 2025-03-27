@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 07:57:17 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/27 09:20:03 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	init_textures(t_game *game)
 		texture_exit_error(4, game);
 	if (game->bonus)
 	{
-		game->textures[4].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/wood.xpm",
+		game->textures[4].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/wood.xpm", //door
 			&game->textures[4].width, &game->textures[4].height);
 		if (!(game->textures[4].img))
 			texture_exit_error(5, game);
@@ -49,6 +49,17 @@ static void	init_textures(t_game *game)
 			&game->textures[i].bits_per_pixel, &game->textures[i].line_length,
 			&game->textures[i].endian);
 	}
+
+	game->rgb.ceil_color = ft_calloc(sizeof(int *), 4);
+	game->rgb.floor_color = ft_calloc(sizeof(int *), 4);
+
+	game->rgb.ceil_color[0] = 35;
+	game->rgb.ceil_color[1] = 19;
+	game->rgb.ceil_color[2] = 73;
+
+	game->rgb.floor_color[0] = 15;
+	game->rgb.floor_color[1] = 6;
+	game->rgb.floor_color[2] = 40;
 }
 
 static void	init_player(t_player *player, t_game *game)

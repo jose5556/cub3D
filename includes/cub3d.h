@@ -6,7 +6,7 @@
 /*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 07:56:32 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/27 09:17:10 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,12 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_rgb
+{
+	int	*floor_color;
+	int	*ceil_color;
+}	t_rgb;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -141,6 +147,7 @@ typedef struct s_game
 	t_player	player;
 	t_ray		ray;
 	t_bob		bob;
+	t_rgb		rgb;
 }	t_game;
 
 //init
@@ -189,5 +196,6 @@ void	calculate_ray_direction(double start_x, t_ray *ray);
 double	degree_to_radians(double a);
 double	get_fps(void);
 void	free_textures(t_game *game, int max);
+unsigned long	convert_rgb(int	*rgb);
 
 #endif
