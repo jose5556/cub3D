@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
+#    By: cereais <cereais@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/01 12:50:37 by joseoliv          #+#    #+#              #
-#    Updated: 2025/03/25 05:03:47 by joseoliv         ###   ########.fr        #
+#    Updated: 2025/03/27 04:47:31 by cereais          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = cc
+BONUS = 0
 
 MINILIBX_DIR	= libs/minilibx-linux
 MINILIBX 	= $(MINILIBX_DIR)/libmlx.a
@@ -40,17 +41,20 @@ OBJS			= 	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(MINILIBX)
-	@$(CC) -o $@ $(OBJS) $(LDFLAGS)
+	@$(CC) -DBONUS=$(BONUS) -o $@ $(OBJS) $(LDFLAGS)
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -DBONUS=$(BONUS) -c $< -o $@
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR) -s
 
 $(MINILIBX):
 	@make -C $(MINILIBX_DIR) -s
+
+bonus:
+	make all BONUS=1
 
 clean:
 	@rm -rf $(OBJS_PATH)
