@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 09:20:03 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/29 09:29:49 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ static void	init_textures(t_game *game)
 
 	i = -1;
 	max = 4;
-	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/west.xpm",			//east
+	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/simonkraft/respawn_anchor_side0.xpm",			//east
 		&game->textures[0].width, &game->textures[0].height);
 	if (!(game->textures[0].img))
 		simple_exit_error("Failed to load texture");
-	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/east.xpm",			//west
+	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/simonkraft/respawn_anchor_side2.xpm",			//west
 		&game->textures[1].width, &game->textures[1].height);
 	if (!(game->textures[1].img))
 		texture_exit_error(2, game);
-	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/north.xpm",  		//south
+	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/simonkraft/respawn_anchor_side4.xpm",  		//south
 		&game->textures[2].width, &game->textures[2].height);
 	if (!(game->textures[2].img))
 		texture_exit_error(3, game);
-	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/test/south.xpm",			//north
+	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/simonkraft/respawn_anchor_side3.xpm",			//north
 		&game->textures[3].width, &game->textures[3].height);
 	if (!(game->textures[3].img))
 		texture_exit_error(4, game);
@@ -77,6 +77,7 @@ static void	init_player(t_player *player, t_game *game)
 	player->right_direction = false;
 	player->shift = false;
 	player->interact = false;
+	player->show_map = true;
 }
 
 static void	init_mlx(t_game *game)

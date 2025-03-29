@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 08:02:53 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/29 09:41:35 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ int	hooks_listener(t_game *game)
 	mlx_hook(game->win, MotionNotify, PointerMotionMask,
 		handle_mouse, game);
 	return (0);
+}
+
+static void	handle_interactions(int keycode, t_game *game)
+{
+	if (keycode == E)
+	{
+		if (!(game->player.interact))
+			game->player.interact = true;
+		else if (!is_inside_door(game->player.x, game->player.y, game))
+			game->player.interact = false;
+	}
+	if (keycode == XK_m)
+	{
+		if (game->player.show_map)
+			game->player.show_map = false;
+		else
+			game->player.show_map = true;
+	}
 }
 
 int	handle_keys_press(int keycode, t_game *game)
@@ -43,12 +61,10 @@ int	handle_keys_press(int keycode, t_game *game)
 		game->player.right_direction = true;
 	if (keycode == XK_Shift_L)
 		game->player.shift = true;
-	if (game->bonus && keycode == E)
+	if (game->bonus)
 	{
-		if (!(game->player.interact))
-			game->player.interact = true;
-		else if (!is_inside_door(game->player.x, game->player.y, game))
-			game->player.interact = false;
+		if (keycode == E || keycode == XK_m)
+			handle_interactions(keycode, game);
 	}
 	return (0);
 }
