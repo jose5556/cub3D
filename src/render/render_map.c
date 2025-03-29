@@ -6,13 +6,13 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/04 17:34:55 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/29 09:28:21 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/29 09:48:24 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-/* char **get_map(void)   //temp func
+char **get_map(void)
 {
 	char	**map;
 	int     i = -1;
@@ -46,10 +46,10 @@
 	map[++i] = "111111111111111";
 	map[++i] = NULL;
 	return (map);
-} */
+}
 
 
-char	**get_map(void)
+/* char	**get_map(void)
 {
 	char	**map;
 	int		i;
@@ -96,4 +96,4 @@ char	**get_map(void)
 	map[++i] = "111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111";
 	map[++i] = NULL;
 	return (map);
-}
+} */
