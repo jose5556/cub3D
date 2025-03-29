@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paint_image.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:21:19 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/27 09:17:35 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/29 09:50:11 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	clear_image(t_game *game)
 
 void	paint_floor_ceil(t_game *game)
 {
-	int	y;
-	int	i;
+	int				y;
+	int				i;
 	unsigned long	floor_color;
 	unsigned long	ceil_color;
 

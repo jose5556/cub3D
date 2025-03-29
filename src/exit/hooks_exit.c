@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:13:24 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 07:58:54 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/29 09:49:22 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	close_program_hook(t_game *game)
 {
 	int	normal_textures_counter;
-	
+
 	normal_textures_counter = 4;
 	free_textures(game, normal_textures_counter + BONUS);
 	if (game->img.img)

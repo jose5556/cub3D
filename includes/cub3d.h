@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/29 09:29:28 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/03/29 09:53:29 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,14 @@
 //ERROR MESSAGES
 # define STANDART_ERROR		"Error\n"
 # define ARGUMENTS_ERROR	"Invalid number of arguments\n"
-# define MLX_INIT_ERROR		"Impossible to connect with mlx api, please try again later\n"
-# define MLX_WINDOW_ERROR	"Impossible to create a new window, please try again later\n"
-# define MLX_IMAGE_ERROR	"Impossible to create a new image, please try again later\n"
+# define MLX_INIT_ERROR		"Impossible to connect with mlx api, \
+please try again later\n" \
+
+# define MLX_WINDOW_ERROR	"Impossible to create a new window, \
+please try again later\n" \
+
+# define MLX_IMAGE_ERROR	"Impossible to create a new image, \
+please try again later\n" \
 
 //KEYCODES
 # define W				119
@@ -152,51 +157,53 @@ typedef struct s_game
 }	t_game;
 
 //init
-void	init(t_game *game);
+void			init(t_game *game);
 
 //render
-int		render_cub3d(void *param);
-void	render_raycaster(t_game *game, double start_x, double fraction);
+int				render_cub3d(void *param);
+void			render_raycaster(t_game *game, double start_x, double fraction);
 
 //events
-int		hooks_listener(t_game *game);
-int		handle_keys_press(int keycode, t_game *game);
-int		handle_keys_released(int keycode, t_game *game);
-int		handle_mouse(int x, int y, t_game *game);
+int				hooks_listener(t_game *game);
+int				handle_keys_press(int keycode, t_game *game);
+int				handle_keys_released(int keycode, t_game *game);
+int				handle_mouse(int x, int y, t_game *game);
 
 //exit
-int		close_program_hook(t_game *game);
-int		simple_exit_error(char *error_message);
-void	mlx_exit_error(char *error_message, t_game *game, int error);
-void	texture_exit_error(int i, t_game *game);
+int				close_program_hook(t_game *game);
+int				simple_exit_error(char *error_message);
+void			mlx_exit_error(char *error_message, t_game *game, int error);
+void			texture_exit_error(int i, t_game *game);
 
 //player
-double	get_player_angle(t_game *game);
-void	move_player(t_game *game);
-int		get_player_x(t_game *game);
-int		get_player_y(t_game *game);
+double			get_player_angle(t_game *game);
+void			move_player(t_game *game);
+int				get_player_x(t_game *game);
+int				get_player_y(t_game *game);
 
 //render_map temp
-char	**get_map(void);
+char			**get_map(void);
 
 //pixels_handler
-void	paint_walls(t_game *game, t_bob *bob, int wall_color, int pixel_x);
-void	my_mlx_pixel_put(t_img *vars, int x, int y, int color);
-void	draw_player(int size, int color, t_game *game);
-void	clear_image(t_game *game);
-void	draw_map(t_game *game);
-void	draw_player(int size, int color, t_game *game);
-void	paint_floor_ceil(t_game *game);
+void			paint_walls(t_game *game, t_bob *bob,
+					int wall_color, int pixel_x);
+void			my_mlx_pixel_put(t_img *vars, int x, int y, int color);
+void			draw_player(int size, int color, t_game *game);
+void			clear_image(t_game *game);
+void			draw_map(t_game *game);
+void			draw_player(int size, int color, t_game *game);
+void			paint_floor_ceil(t_game *game);
 
 //utils
-bool	touch_wall(double px, double py, t_game *game);
-bool	is_inside_wall(double px, double py, t_game *game);
-bool	is_inside_door(double px, double py, t_game *game);
-void	set_ray_parameters(t_game *game, double *fraction, double *start_x);
-void	calculate_ray_direction(double start_x, t_ray *ray);
-double	degree_to_radians(double a);
-double	get_fps(void);
-void	free_textures(t_game *game, int max);
+bool			touch_wall(double px, double py, t_game *game);
+bool			is_inside_wall(double px, double py, t_game *game);
+bool			is_inside_door(double px, double py, t_game *game);
+void			set_ray_parameters(t_game *game, double *fraction,
+					double *start_x);
+void			calculate_ray_direction(double start_x, t_ray *ray);
+double			degree_to_radians(double a);
+double			get_fps(void);
+void			free_textures(t_game *game, int max);
 unsigned long	convert_rgb(int	*rgb);
 
 #endif

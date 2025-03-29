@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 07:25:05 by cereais           #+#    #+#             */
-/*   Updated: 2025/03/27 09:18:35 by cereais          ###   ########.fr       */
+/*   Updated: 2025/03/29 09:49:57 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	free_textures(t_game *game, int max)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < max)
 	{
