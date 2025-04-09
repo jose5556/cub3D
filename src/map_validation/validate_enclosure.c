@@ -65,7 +65,7 @@ static bool	check_enclosure_tiles(char **padded, int height, int width)
 		{
 			if (padded[i][j] == '0' || padded[i][j] == 'N'
 				|| padded[i][j] == 'S' || padded[i][j] == 'E'
-				|| padded[i][j] == 'W')
+				|| padded[i][j] == 'W' || padded[i][j] == '4')
 			{
 				if (has_invalid_adjacent(padded, i, j))
 					return (false);
