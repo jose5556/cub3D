@@ -23,15 +23,22 @@ int	get_player_y(t_game *game)
 {
 	int	i;
 	int	j;
+	int	map_start;
 
-	i = 0;
+	map_start = 0;
+	while (game->map[map_start] && (game->map[map_start][0] == 'N'
+		|| game->map[map_start][0] == 'S' || game->map[map_start][0] == 'W'
+		|| game->map[map_start][0] == 'E' || game->map[map_start][0] == 'F'
+		|| game->map[map_start][0] == 'C' || game->map[map_start][0] == '\0'))
+		map_start++;
+	i = map_start;
 	while (game->map[i])
 	{
 		j = 0;
 		while (game->map[i][j])
 		{
 			if (is_player(game->map[i][j]))
-				return (i);
+				return (i - map_start);
 			j++;
 		}
 		i++;
@@ -43,8 +50,15 @@ int	get_player_x(t_game *game)
 {
 	int	i;
 	int	j;
+	int	map_start;
 
-	i = 0;
+	map_start = 0;
+	while (game->map[map_start] && (game->map[map_start][0] == 'N'
+		|| game->map[map_start][0] == 'S' || game->map[map_start][0] == 'W'
+		|| game->map[map_start][0] == 'E' || game->map[map_start][0] == 'F'
+		|| game->map[map_start][0] == 'C' || game->map[map_start][0] == '\0'))
+		map_start++;
+	i = map_start;
 	while (game->map[i])
 	{
 		j = 0;
@@ -63,8 +77,15 @@ static char	get_player_chr(t_game *game)
 {
 	int	i;
 	int	j;
+	int	map_start;
 
-	i = 0;
+	map_start = 0;
+	while (game->map[map_start] && (game->map[map_start][0] == 'N'
+		|| game->map[map_start][0] == 'S' || game->map[map_start][0] == 'W'
+		|| game->map[map_start][0] == 'E' || game->map[map_start][0] == 'F'
+		|| game->map[map_start][0] == 'C' || game->map[map_start][0] == '\0'))
+		map_start++;
+	i = map_start;
 	while (game->map[i])
 	{
 		j = 0;

@@ -1,11 +1,14 @@
 NO assets/textures/simonkraft/respawn_anchor_side0.xpm
 EA assets/textures/simonkraft/respawn_anchor_side2.xpm
 SO assets/textures/simonkraft/respawn_anchor_side4.xpm
-WE assets/textures/simonkraft/respawn_anchor_side3.xpm
+
 PO assets/textures/wolfenstein/wood.xpm
+
 
 C 35,19,73
 F 15,6,40
+
+WE assets/textures/simonkraft/respawn_anchor_side3.xpm
 
 111111111111111
 111111000111111
@@ -33,3 +36,4 @@ F 15,6,40
 111110000011111
 111111000111111
 111111111111111
+

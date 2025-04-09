@@ -14,12 +14,13 @@
 
 int	simple_exit_error(char *error_message)
 {
-	printf("%s%s\n", STANDART_ERROR, error_message);
-	exit (0);
+	printf("%s%s\n", STANDARD_ERROR, error_message);
+	return (0);
 }
 
 void	mlx_exit_error(char *error_message, t_game *game, int error)
 {
+	free_config_paths(game);
 	if (error == 1)
 	{
 		mlx_destroy_display(game->mlx);
@@ -27,25 +28,15 @@ void	mlx_exit_error(char *error_message, t_game *game, int error)
 	}
 	else if (error == 2)
 	{
-		mlx_destroy_display(game->mlx);
+		if (game->img.img)
+			mlx_destroy_image(game->mlx, game->img.img);
+		free_textures(game, 4);
 		mlx_destroy_window(game->mlx, game->win);
+		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
-	printf("%s%s\n", STANDART_ERROR, error_message);
+	if (game->map)
+		ft_free_array(game->map);
+	printf("%s%s\n", STANDARD_ERROR, error_message);
 	exit(EXIT_FAILURE);
-}
-
-void	texture_exit_error(int i, t_game *game)
-{
-	free_textures(game, i);
-	if (game->img.img)
-		mlx_destroy_image(game->mlx, game->img.img);
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	if (game->mlx)
-	{
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-	}
-	simple_exit_error("Failed to load texture");
 }

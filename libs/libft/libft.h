@@ -79,5 +79,6 @@ int		count(long long n, int base);
 int		ft_putptr_hexa(unsigned long long n);
 int		ft_unsigned_putnbr(unsigned int n);
 int		count_unsigned(unsigned long long n);
+size_t  ft_strspn(const char *s, const char *accept);
 
 #endif

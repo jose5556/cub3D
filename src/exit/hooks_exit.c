@@ -14,10 +14,8 @@
 
 int	close_program_hook(t_game *game)
 {
-	int	normal_textures_counter;
-
-	normal_textures_counter = 4;
-	free_textures(game, normal_textures_counter + BONUS);
+	free_config_paths(game);
+	free_textures(game, 4);
 	if (game->img.img)
 		mlx_destroy_image(game->mlx, game->img.img);
 	if (game->win)
@@ -27,7 +25,8 @@ int	close_program_hook(t_game *game)
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
-	free(game->map);
+	if (game->map)
+		ft_free_array(game->map);
 	exit (EXIT_SUCCESS);
 	return (0);
 }

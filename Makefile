@@ -20,7 +20,7 @@ MINILIBX 	= $(MINILIBX_DIR)/libmlx.a
 LIBFT_DIR	= libs/libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 
-CFLAGS		= -Wextra -Wall -Werror  
+CFLAGS		= -Wall -Wextra -Werror
 LDFLAGS 	= $(LIBFT) $(MINILIBX) -lX11 -lXext -lm
 
 OBJS_PATH	=	./objects/
@@ -39,10 +39,16 @@ SRCS		=	main.c \
 				\
 				player/player_movement.c player/player_position.c \
 				\
-				render/render_cub3d.c render/render_map.c render/render_raycaster.c \
+				render/render_cub3d.c render/render_raycaster.c \
 				\
 				utils/fps_utils.c utils/move_player_utils.c utils/raycaster_utils.c \
-				utils/free_utils.c utils/rgb_utils.c \
+				utils/free_utils.c utils/rgb_utils.c utils/validation_utils.c \
+				utils/init_utils.c utils/validation_utils2.c \
+				\
+				map_validation/validate_border.c map_validation/validate_map2.c \
+				map_validation/parse_map.c map_validation/validate_map.c \
+				map_validation/parse_config.c map_validation/validate_config.c \
+				map_validation/validate_enclosure.c map_validation/parse_rgb.c 
 				
 SRCS_FILES		= 	$(addprefix $(SRCS_PATH), $(SRCS))
 OBJS			= 	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))

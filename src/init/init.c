@@ -12,54 +12,38 @@
 
 #include "../../includes/cub3d.h"
 
+static void	load_single_texture(t_game *game, int index, char *path)
+{
+	game->textures[index].img = mlx_xpm_file_to_image(
+			game->mlx, path,
+			&game->textures[index].width, &game->textures[index].height);
+	if (!game->textures[index].img)
+		mlx_exit_error("Failed to load texture", game, 1);
+	game->textures[index].addr = mlx_get_data_addr(
+			game->textures[index].img,
+			&game->textures[index].bits_per_pixel,
+			&game->textures[index].line_length,
+			&game->textures[index].endian);
+}
+
 static void	init_textures(t_game *game)
 {
-	int	i;
-	int	max;
-
-	i = -1;
-	max = 4;
-	game->textures[0].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/simonkraft/respawn_anchor_side0.xpm",			//east
-		&game->textures[0].width, &game->textures[0].height);
-	if (!(game->textures[0].img))
-		simple_exit_error("Failed to load texture");
-	game->textures[1].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/simonkraft/respawn_anchor_side2.xpm",			//west
-		&game->textures[1].width, &game->textures[1].height);
-	if (!(game->textures[1].img))
-		texture_exit_error(2, game);
-	game->textures[2].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/simonkraft/respawn_anchor_side4.xpm",  		//south
-		&game->textures[2].width, &game->textures[2].height);
-	if (!(game->textures[2].img))
-		texture_exit_error(3, game);
-	game->textures[3].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/simonkraft/respawn_anchor_side3.xpm",			//north
-		&game->textures[3].width, &game->textures[3].height);
-	if (!(game->textures[3].img))
-		texture_exit_error(4, game);
-	if (game->bonus)
+	load_single_texture(game, 0, game->config.no_texture);
+	load_single_texture(game, 1, game->config.so_texture);
+	load_single_texture(game, 2, game->config.we_texture);
+	load_single_texture(game, 3, game->config.ea_texture);
+	if (game->bonus && game->config.door_texture)
 	{
-		game->textures[4].img = mlx_xpm_file_to_image(game->mlx, "assets/textures/wolfenstein/wood.xpm", //door
-			&game->textures[4].width, &game->textures[4].height);
-		if (!(game->textures[4].img))
-			texture_exit_error(5, game);
-		max++;
+		game->textures[4].img = mlx_xpm_file_to_image(game->mlx,
+				game->config.door_texture,
+				&game->textures[4].width, &game->textures[4].height);
+		if (!game->textures[4].img)
+			mlx_exit_error("Failed to load door texture", game, 1);
+		game->textures[4].addr = mlx_get_data_addr(game->textures[4].img,
+				&game->textures[4].bits_per_pixel,
+				&game->textures[4].line_length,
+				&game->textures[4].endian);
 	}
-	while (++i < max)
-	{
-		game->textures[i].addr = mlx_get_data_addr(game->textures[i].img,
-			&game->textures[i].bits_per_pixel, &game->textures[i].line_length,
-			&game->textures[i].endian);
-	}
-
-	game->rgb.ceil_color = ft_calloc(sizeof(int *), 4);
-	game->rgb.floor_color = ft_calloc(sizeof(int *), 4);
-
-	game->rgb.ceil_color[0] = 35;
-	game->rgb.ceil_color[1] = 19;
-	game->rgb.ceil_color[2] = 73;
-
-	game->rgb.floor_color[0] = 15;
-	game->rgb.floor_color[1] = 6;
-	game->rgb.floor_color[2] = 40;
 }
 
 static void	init_player(t_player *player, t_game *game)
@@ -77,7 +61,7 @@ static void	init_player(t_player *player, t_game *game)
 	player->right_direction = false;
 	player->shift = false;
 	player->interact = false;
-	player->show_map = true;
+	player->show_map = (BONUS == 1);
 }
 
 static void	init_mlx(t_game *game)
@@ -97,9 +81,9 @@ static void	init_mlx(t_game *game)
 
 void	init(t_game *game)
 {
+	check_texture_paths(game);
 	init_mlx(game);
 	init_textures(game);
-	game->map = get_map();
 	game->is_door = 0;
 	init_player(&game->player, game);
 }

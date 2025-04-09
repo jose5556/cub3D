@@ -23,6 +23,39 @@ void	free_textures(t_game *game, int max)
 			mlx_destroy_image(game->mlx, game->textures[i].img);
 		i++;
 	}
-	free(game->rgb.ceil_color);
-	free(game->rgb.floor_color);
+}
+
+void	ft_free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	if (!array)
+		return ;
+	while (array[i])
+	{
+		free(array[i]);
+		array[i] = NULL;
+		i++;
+	}
+	free(array);
+}
+
+void	free_config_paths(t_game *game)
+{
+	if (game->config.no_texture)
+		free(game->config.no_texture);
+	if (game->config.so_texture)
+		free(game->config.so_texture);
+	if (game->config.we_texture)
+		free(game->config.we_texture);
+	if (game->config.ea_texture)
+		free(game->config.ea_texture);
+	if (game->config.door_texture)
+		free(game->config.door_texture);
+	game->config.no_texture = NULL;
+	game->config.so_texture = NULL;
+	game->config.we_texture = NULL;
+	game->config.ea_texture = NULL;
+	game->config.door_texture = NULL;
 }

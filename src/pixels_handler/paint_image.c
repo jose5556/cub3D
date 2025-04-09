@@ -39,19 +39,23 @@ void	clear_image(t_game *game)
 
 void	paint_floor_ceil(t_game *game)
 {
-	int				y;
-	int				i;
-	unsigned long	floor_color;
-	unsigned long	ceil_color;
+	int	y;
+	int	i;
+	int	floor_color;
+	int	ceiling_color;
 
+	floor_color = (game->config.floor_rgb[0] << 16)
+		| (game->config.floor_rgb[1] << 8)
+		| game->config.floor_rgb[2];
+	ceiling_color = (game->config.ceiling_rgb[0] << 16)
+		| (game->config.ceiling_rgb[1] << 8)
+		| game->config.ceiling_rgb[2];
 	y = -1;
-	floor_color = convert_rgb(game->rgb.floor_color);
-	ceil_color = convert_rgb(game->rgb.floor_color);
 	while (++y < HEIGHT / 2)
 	{
 		i = -1;
 		while (++i < WIDTH)
-			my_mlx_pixel_put(&game->img, i, y, ceil_color);
+			my_mlx_pixel_put(&game->img, i, y, ceiling_color);
 	}
 	while (++y < HEIGHT - 1)
 	{

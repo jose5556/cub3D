@@ -13,10 +13,6 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# ifndef BONUS
-#  define BONUS 1
-# endif
-
 # include "../libs/minilibx-linux/mlx.h"
 # include "../libs/libft/libft.h"
 # include <X11/keysym.h>
@@ -28,6 +24,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <sys/time.h>
+# include <fcntl.h>
 
 //SCREEN / PLAYER SIZE
 //# define HEIGHT			1080
@@ -38,16 +35,40 @@
 # define RADIUS			4
 
 //ERROR MESSAGES
-# define STANDART_ERROR		"Error\n"
-# define ARGUMENTS_ERROR	"Invalid number of arguments\n"
+# define STANDARD_ERROR		"Error\n"
+
+# define ARGUMENTS_ERROR	"Invalid number of arguments"
+
 # define MLX_INIT_ERROR		"Impossible to connect with mlx api, \
-please try again later\n" \
+please try again later"
 
 # define MLX_WINDOW_ERROR	"Impossible to create a new window, \
-please try again later\n" \
+please try again later"
 
 # define MLX_IMAGE_ERROR	"Impossible to create a new image, \
-please try again later\n" \
+please try again later"
+
+# define MISSING_TEXTURE_ERROR	"Missing texture"
+
+# define INVALID_TEXTURE_PATH	"Invalid texture path"
+
+# define INVALID_RGB	"Invalid RGB Configuration"
+
+# define DUPLICATE_TEXTURE	"Duplicate texture found"
+
+# define OPEN_SPACES	"Map contains invalid open spaces"
+
+# define WALKABLE_TILES	"Map has walkable tiles on the edge"
+
+# define PLAYER_COUNT	"Map must contain exactly one player"
+
+# define MISSING_PO	"Door tile found but no PO texture provided"
+
+# define EMPTY_MAP "Empty map"
+
+# define INVALID_MAP_FILE "Invalid map file"
+
+# define CONTENT_AFTER_MAP "Content found after map"
 
 //KEYCODES
 # define W				119
@@ -135,25 +156,38 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_rgb
+typedef struct s_map_config
 {
-	int	*floor_color;
-	int	*ceil_color;
-}	t_rgb;
+	char	*no_texture;
+	char	*so_texture;
+	char	*we_texture;
+	char	*ea_texture;
+	char	*door_texture;
+	bool	no_found;
+	bool	so_found;
+	bool	we_found;
+	bool	ea_found;
+	bool	door_found;
+	bool	floor_found;
+	bool	ceiling_found;
+	bool	config_section_done;
+	int		floor_rgb[3];
+	int		ceiling_rgb[3];
+}	t_map_config;
 
 typedef struct s_game
 {
-	void		*mlx;
-	void		*win;
-	char		**map;
-	int			is_door;
-	bool		bonus;
-	t_img		img;
-	t_texture	textures[5];
-	t_player	player;
-	t_ray		ray;
-	t_bob		bob;
-	t_rgb		rgb;
+	void			*mlx;
+	void			*win;
+	char			**map;
+	int				is_door;
+	bool			bonus;
+	t_img			img;
+	t_texture		textures[5];
+	t_player		player;
+	t_ray			ray;
+	t_bob			bob;
+	t_map_config	config;
 }	t_game;
 
 //init
@@ -173,16 +207,12 @@ int				handle_mouse(int x, int y, t_game *game);
 int				close_program_hook(t_game *game);
 int				simple_exit_error(char *error_message);
 void			mlx_exit_error(char *error_message, t_game *game, int error);
-void			texture_exit_error(int i, t_game *game);
 
 //player
 double			get_player_angle(t_game *game);
 void			move_player(t_game *game);
 int				get_player_x(t_game *game);
 int				get_player_y(t_game *game);
-
-//render_map temp
-char			**get_map(void);
 
 //pixels_handler
 void			paint_walls(t_game *game, t_bob *bob,
@@ -205,5 +235,33 @@ double			degree_to_radians(double a);
 double			get_fps(void);
 void			free_textures(t_game *game, int max);
 unsigned long	convert_rgb(int	*rgb);
+void			free_config_paths(t_game *game);
+void			ft_free_array(char **array);
+bool			is_invalid_tile(char c);
+bool			is_line_empty(char *trimmed);
+int				check_xpm_header(char *path);
+void			check_texture_paths(t_game *game);
+bool			is_map_char(char c);
+bool			line_has_map_characters(const char *line, int len);
+bool			line_is_whitespace(const char *line, int len);
+bool			is_config_or_empty(char *line, int len);
+
+// map_validation
+char			**parse_map_file(char *file_path);
+void			init_map_config(t_map_config *config);
+bool			is_texture_line(t_game *game, char *line, t_map_config *config);
+bool			is_color_line(char *line, t_map_config *config);
+bool			parse_config_line(t_game *game, char *line, t_map_config *config);
+bool			validate_map(t_game *game);
+bool			validate_space_enclosure(char **map);
+bool			validate_map_content(t_game *game);
+bool			validate_map_edges(char **map);
+bool			parse_rgb_values(char *str, int rgb[3]);
+bool			store_rgb_values(char *line, t_map_config *config);
+bool			handle_config_complete(char *trimmed, t_map_config *config);
+bool			handle_texture_and_color(t_game *game, char *trimmed, t_map_config *config);
+bool			store_texture_path(t_game *game, char *line, t_map_config *config);
+bool			is_config_line_start(const char *line);
+bool			is_empty_content(const char *content);
 
 #endif

@@ -19,12 +19,12 @@ static t_texture	*select_texture(t_game *game, int side)
 	if (side == 0)
 	{
 		if (game->ray.step_x > 0)
-			return (&game->textures[0]);
-		return (&game->textures[1]);
+			return (&game->textures[2]);
+		return (&game->textures[3]);
 	}
 	if (game->ray.step_y > 0)
-		return (&game->textures[2]);
-	return (&game->textures[3]);
+		return (&game->textures[0]);
+	return (&game->textures[1]);
 }
 
 static double	calculate_wall_x(t_game *game, t_bob *bob, int side)
