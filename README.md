@@ -17,7 +17,7 @@ game engines, and player interaction.
 
 # 🔍 Overview
 
-![Screenshot raw_game](assets/screenshots_game/Screenshot raw_game.png)
+![Screenshot raw_game](assets/screenshots_game/mandelbrot_1.png)
 ![Screenshot game](assets/screenshots_game/Screenshot game.png)
 
 The game features a simple FPS-like environment where the player can move around a map and see 
