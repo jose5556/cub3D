@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: dzinchen <dzinchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/29 09:53:29 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:19:01 by dzinchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,6 +245,7 @@ bool			is_map_char(char c);
 bool			line_has_map_characters(const char *line, int len);
 bool			line_is_whitespace(const char *line, int len);
 bool			is_config_or_empty(char *line, int len);
+bool			has_cub_extension(char *file_path);
 
 // map_validation
 char			**parse_map_file(char *file_path);

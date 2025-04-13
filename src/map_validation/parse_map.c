@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: dzinchen <dzinchen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:26:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/04/13 16:28:48 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:19:43 by dzinchen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	**parse_map_file(char *file_path)
 	char	*content;
 	char	**map;
 
-	if (!ft_strnstr(file_path, ".cub", ft_strlen(file_path)))
+	if (!has_cub_extension(file_path))
 		return (NULL);
 	content = read_file_content(file_path);
 	if (!content)
