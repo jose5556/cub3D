@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dzinchen <dzinchen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:36 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/04/13 17:19:01 by dzinchen         ###   ########.fr       */
+/*   Updated: 2025/04/13 17:29:17 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ please try again later"
 
 # define INVALID_MAP_FILE "Invalid map file"
 
-# define UNEXPECTED_FILE_CONTENT "Unexpected content found after file validation"
+# define UNEXPECTED_FILE_CONTENT "Unexpected content found after \
+file validation"
 
 //KEYCODES
 # define W				119
@@ -252,7 +253,8 @@ char			**parse_map_file(char *file_path);
 void			init_map_config(t_map_config *config);
 bool			is_texture_line(t_game *game, char *line, t_map_config *config);
 bool			is_color_line(char *line, t_map_config *config);
-bool			parse_config_line(t_game *game, char *line, t_map_config *config);
+bool			parse_config_line(t_game *game, char *line,
+					t_map_config *config);
 bool			validate_map(t_game *game);
 bool			validate_space_enclosure(char **map);
 bool			validate_map_content(t_game *game);
@@ -260,8 +262,10 @@ bool			validate_map_edges(char **map);
 bool			parse_rgb_values(char *str, int rgb[3]);
 bool			store_rgb_values(char *line, t_map_config *config);
 bool			handle_config_complete(char *trimmed, t_map_config *config);
-bool			handle_texture_and_color(t_game *game, char *trimmed, t_map_config *config);
-bool			store_texture_path(t_game *game, char *line, t_map_config *config);
+bool			handle_texture_and_color(t_game *game, char *trimmed,
+					t_map_config *config);
+bool			store_texture_path(t_game *game, char *line,
+					t_map_config *config);
 bool			is_config_line_start(const char *line);
 bool			is_empty_content(const char *content);
 

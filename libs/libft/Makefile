@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cereais <cereais@student.42.fr>            +#+  +:+       +#+         #
+#    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/11 20:20:52 by joseoliv          #+#    #+#              #
-#    Updated: 2025/03/06 18:11:30 by cereais          ###   ########.fr        #
+#    Updated: 2025/04/13 17:30:03 by joseoliv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC = \
 	char/ft_isalpha.c char/ft_isdigit.c char/ft_isalnum.c char/ft_isascii.c char/ft_isprint.c char/ft_tolower.c char/ft_toupper.c \
 	get_next_line/get_next_line_utils.c get_next_line/get_next_line.c \
 	input_output/ft_putchar_fd.c input_output/ft_putendl_fd.c input_output/ft_putnbr_fd.c input_output/ft_putstr_fd.c \
-	input_output/ft_printf/ft_printf.c input_output/ft_printf/write_funcs.c input_output/ft_printf/nbr_funcs.c input_output/ft_test.c \
+	input_output/ft_printf/ft_printf.c input_output/ft_printf/write_funcs.c input_output/ft_printf/nbr_funcs.c \
 	memory/ft_bzero.c memory/ft_calloc.c memory/ft_memchr.c memory/ft_memcmp.c memory/ft_memcpy.c memory/ft_memmove.c \
 	memory/ft_clear_array.c memory/ft_memset.c \
 	string/ft_split.c string/ft_strchr.c string/ft_strdup.c string/ft_striteri.c string/ft_strjoin.c string/ft_strlcat.c string/ft_strlcpy.c \
