@@ -42,10 +42,10 @@ static bool	process_line(char *line, int len, bool *started, bool *ended)
 {
 	if (!(*started))
 	{
-		if (ft_strncmp(line, "NO", 2) == 0  ft_strncmp(line, "SO", 2) == 0
-             ft_strncmp(line, "WE", 2) == 0  ft_strncmp(line, "EA", 2) == 0
-             ft_strncmp(line, "F ", 2) == 0  ft_strncmp(line, "C ", 2) == 0
-             ft_strncmp(line, "PO", 2) == 0)
+		if (ft_strncmp(line, "NO", 2) == 0 || ft_strncmp(line, "SO", 2) == 0
+            || ft_strncmp(line, "WE", 2) == 0 || ft_strncmp(line, "EA", 2) == 0
+            || ft_strncmp(line, "F ", 2) == 0 || ft_strncmp(line, "C ", 2) == 0
+            || ft_strncmp(line, "PO", 2) == 0)
             return (false);
 		if (is_config_or_empty(line, len))
 			return (false);
