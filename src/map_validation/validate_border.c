@@ -2,7 +2,8 @@
 
 static bool	is_invalid_char_near_edge(char c)
 {
-	return (c == '0' || c == 'N' || c == 'S' || c == 'E' || c == 'W' || c == '4');
+	return (c == '0' || c == 'N' || c == 'S'
+		|| c == 'E' || c == 'W' || c == '4');
 }
 
 static bool	check_top_bottom_edges(char *line)

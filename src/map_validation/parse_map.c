@@ -42,6 +42,11 @@ static bool	process_line(char *line, int len, bool *started, bool *ended)
 {
 	if (!(*started))
 	{
+		if (ft_strncmp(line, "NO", 2) == 0  ft_strncmp(line, "SO", 2) == 0
+             ft_strncmp(line, "WE", 2) == 0  ft_strncmp(line, "EA", 2) == 0
+             ft_strncmp(line, "F ", 2) == 0  ft_strncmp(line, "C ", 2) == 0
+             ft_strncmp(line, "PO", 2) == 0)
+            return (false);
 		if (is_config_or_empty(line, len))
 			return (false);
 		if (line_has_map_characters(line, len))
@@ -98,7 +103,7 @@ char	**parse_map_file(char *file_path)
 	if (has_content_after_map(content))
 	{
 		free(content);
-		simple_exit_error(CONTENT_AFTER_MAP);
+		simple_exit_error(UNEXPECTED_FILE_CONTENT);
 		exit(1);
 	}
 	map = ft_split(content, '\n');

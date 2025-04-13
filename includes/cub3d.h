@@ -68,7 +68,7 @@ please try again later"
 
 # define INVALID_MAP_FILE "Invalid map file"
 
-# define CONTENT_AFTER_MAP "Content found after map"
+# define UNEXPECTED_FILE_CONTENT "Unexpected content found after file validation"
 
 //KEYCODES
 # define W				119

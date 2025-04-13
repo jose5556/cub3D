@@ -48,7 +48,7 @@ static bool	validate_map_characters(t_game *game, bool *found_door)
 		{
 			if (!is_valid_map_char(game, c) && (!game->bonus || c != '4'))
 			{
-				printf("Error\nInvalid character '%c' at [%d][%d]\n", c, i, j);
+				printf("Error\nInvalid character '%c' found in game map\n", c);
 				return (false);
 			}
 			if (game->bonus && c == '4')
