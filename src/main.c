@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
+/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:56:22 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/27 08:01:16 by cereais          ###   ########.fr       */
+/*   Updated: 2025/04/13 16:24:25 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,3 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(game.mlx, render_cub3d, &game);
 	mlx_loop(game.mlx);
 }
-
-// https://lodev.org/cgtutor/raycasting.html
-
-//TODO
-
-//
-
-//AT BONUS, WE NEED TO CHECK IF THE DOOR HAS VALID MAP BEHIND
