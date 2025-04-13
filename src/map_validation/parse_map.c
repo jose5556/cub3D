@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:26:13 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/04/13 16:26:14 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/04/13 16:28:48 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ static bool	process_line(char *line, int len, bool *started, bool *ended)
 	if (!(*started))
 	{
 		if (ft_strncmp(line, "NO", 2) == 0 || ft_strncmp(line, "SO", 2) == 0
-            || ft_strncmp(line, "WE", 2) == 0 || ft_strncmp(line, "EA", 2) == 0
-            || ft_strncmp(line, "F ", 2) == 0 || ft_strncmp(line, "C ", 2) == 0
-            || ft_strncmp(line, "PO", 2) == 0)
-            return (false);
+			|| ft_strncmp(line, "WE", 2) == 0 || ft_strncmp(line, "EA", 2) == 0
+			|| ft_strncmp(line, "F ", 2) == 0 || ft_strncmp(line, "C ", 2) == 0
+			|| ft_strncmp(line, "PO", 2) == 0)
+			return (false);
 		if (is_config_or_empty(line, len))
 			return (false);
 		if (line_has_map_characters(line, len))
