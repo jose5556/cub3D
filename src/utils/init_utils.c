@@ -6,7 +6,7 @@
 /*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:25:04 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/04/13 16:25:05 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/04/13 18:17:52 by joseoliv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ int	check_xpm_header(char *path)
 	int		fd;
 	char	buf[5];
 	int		ret;
+	size_t	len;
 
+	len = ft_strlen(path);
+	if (ft_strncmp(path + len - 4, ".xpm", 4) != 0)
+		return (0);
+	if (ft_strncmp(path + len - 5, "/.xpm", 5) == 0)
+		return (false);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 		return (0);
