@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_cub3d.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 14:18:14 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/04/13 18:30:30 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/04/16 14:41:43 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	render_cub3d(void *param)
 	paint_floor_ceil(game);
 	set_ray_parameters(game, &fraction, &start_x);
 	render_raycaster(game, start_x, fraction);
-	if (game->bonus && game->player.show_map)
+	if (game->player.show_map)
 	{
 		draw_map(game);
 		draw_player(SIZE / 4, GREEN, game);

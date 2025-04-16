@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 17:07:09 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/29 09:41:35 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/04/16 14:43:20 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,19 @@ int	handle_mouse(int x, int y, t_game *game)
 	int			delta_x;
 
 	(void)y;
-	if (game->bonus)
+	if (previous_mouse_x == -1)
+		previous_mouse_x = x;
+	else
 	{
-		if (previous_mouse_x == -1)
-			previous_mouse_x = x;
-		else
-		{
-			delta_x = x - previous_mouse_x;
-			angle_speed = 0.005;
-			game->player.angle += delta_x * angle_speed;
-			game->player.angle = fmod(game->player.angle, 2 * PI);
-			if (game->player.angle < 0)
-				game->player.angle += 2 * PI;
-			game->player.x_cos = cos(game->player.angle);
-			game->player.y_sin = sin(game->player.angle);
-			previous_mouse_x = x;
-		}
+		delta_x = x - previous_mouse_x;
+		angle_speed = 0.005;
+		game->player.angle += delta_x * angle_speed;
+		game->player.angle = fmod(game->player.angle, 2 * PI);
+		if (game->player.angle < 0)
+			game->player.angle += 2 * PI;
+		game->player.x_cos = cos(game->player.angle);
+		game->player.y_sin = sin(game->player.angle);
+		previous_mouse_x = x;
 	}
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: cereais <cereais@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:06:23 by joseoliv          #+#    #+#             */
-/*   Updated: 2025/03/29 09:29:49 by joseoliv         ###   ########.fr       */
+/*   Updated: 2025/04/16 14:42:16 by cereais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	init_player(t_player *player, t_game *game)
 	player->right_direction = false;
 	player->shift = false;
 	player->interact = false;
-	player->show_map = (BONUS == 1);
+	player->show_map = 1;
 }
 
 static void	init_mlx(t_game *game)
