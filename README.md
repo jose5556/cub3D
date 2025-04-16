@@ -17,8 +17,8 @@ game engines, and player interaction.
 
 # 🔍 Overview
 
-![Screenshot raw_game](assets/screenshots_game/mandelbrot_1.png)
-![Screenshot game](assets/screenshots_game/Screenshot game.png)
+![Screenshot game](assets/screenshots_game/raw_game.png)
+![Screenshot game](assets/screenshots_game/game.png)
 
 The game features a simple FPS-like environment where the player can move around a map and see 
 walls rendered in 3D based on their point of view. The project includes:
