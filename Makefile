@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: joseoliv <joseoliv@student.42porto.com>    +#+  +:+       +#+         #
+#    By: cereais <cereais@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/01 12:50:37 by joseoliv          #+#    #+#              #
-#    Updated: 2025/04/13 17:59:13 by joseoliv         ###   ########.fr        #
+#    Updated: 2025/04/16 14:54:16 by cereais          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT) | $(MINILIBX)
 	@$(CC) $(CFLAGS) -DBONUS=$(BONUS) $(OBJS) $(LDFLAGS) -o $@
 
-$(OBJS_PATH)%.o: $(SRCS_PATH)%.c
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c | $(MINILIBX)
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -DBONUS=$(BONUS) -c $< -o $@
 
@@ -58,8 +58,13 @@ $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
 $(MINILIBX):
+	@if [ ! -d "$(MINILIBX_DIR)" ]; then \
+		echo "MiniLibX not found, cloning..."; \
+		git clone https://github.com/42Paris/minilibx-linux.git $(MINILIBX_DIR); \
+	fi
 	@make -C $(MINILIBX_DIR) || true
-	@test -f $(MINILIBX) || exit 1
+	@test -f $(MINILIBX) || (echo "MiniLibX build failed!" && exit 1)
+
 
 bonus:
 	make all BONUS=1
